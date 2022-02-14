@@ -2,6 +2,9 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { db } from "./firebase-config";
 import { collection, doc, getDocs } from "firebase/firestore";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import ApiTest from "./Pages/ApiTest";
+
 function App() {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "users")
@@ -20,6 +23,11 @@ function App() {
       {users.map((user) => {
         return <div> <h1> Name: {user.name}</h1></div>
       })}
+    <Router>
+        <Switch>
+            <Route exact path="/getApi" component={ApiTest} />
+        </Switch>
+    </Router>
     </div>
   );
 }
