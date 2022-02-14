@@ -5,7 +5,10 @@ import { collection, doc, getDocs } from "firebase/firestore";
 import { Container, Row, Col } from 'react-bootstrap';
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+import Home from "./components/Home"
 import { Routes, Route } from "react-router-dom"
+import { UserAuthContextProvider } from './context/UserAuthContext';
+import ProtectedRoute from "./context/ProtectedRoute";
 
 
 function App() {
@@ -14,10 +17,13 @@ function App() {
     <Container>
       <Row>
         <Col>
-        <Routes>
-          <Route path = "/" element = {<Login />} />
-          <Route path = "/signup" element = {<Signup />} />
-        </Routes>
+        <UserAuthContextProvider>
+          <Routes>
+            <Route path = "/" element = {<Login />} />
+            <Route path = "/signup" element = {<Signup />} />
+            <Route path = "/home" element = {<ProtectedRoute> <Home /> </ProtectedRoute>} />
+          </Routes>
+        </UserAuthContextProvider> 
         </Col>
       </Row>
     </Container>
