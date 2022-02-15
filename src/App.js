@@ -23,7 +23,7 @@ function App() {
             <Route path = "/" element = {<Login />} />
             <Route path = "/signup" element = {<Signup />} />
             <Route path = "/home" element = {<ProtectedRoute> <Home /> </ProtectedRoute>} />
-            <Route path = "/apidata" element = {<ApiTest />} />
+            <Route path = "/getdata" element = {<ApiTest />} />
           </Routes>
         </UserAuthContextProvider> 
         </Col>
