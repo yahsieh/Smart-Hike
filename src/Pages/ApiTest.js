@@ -2,14 +2,15 @@ import React,{useState, useEffect} from "react";
 
 function ApiTest(){
 
-const[data, setData] = useState([]);
+const[user, setUser] = useState([]);
 
 const apiGet = () => {
-    fetch('https://prescriptiontrails.org/api/trail/?id=3')
+    fetch('https://prescriptiontrails.org/api/filter/?by=city&city=Albuquerque&offset=0&count=7')
     .then((response) => response.json())
     .then((json) => {
-        console.log(json);
-        setData(json);
+        let parsedArray = json.trails;
+        console.log(parsedArray);
+        setUser(parsedArray);
     });
 };
 
@@ -19,20 +20,21 @@ useEffect(() => {
 
     return (
         <div>
-            Api Call <br />
-            <button onClick={apiGet}>Get Data</button>
             <br/>
-            {/*<pre>{JSON.stringify(data,null,2)}</pre>*/}
-            <div>
-                <p>Trail Difficulty on scale of 5: {data.difficulty}</p>
-                <p>Trail Name: {data.name}</p>
-                <p>Address: {data.address} + {data.city} + {data.zip}</p>
-                <p>Image from Trail</p>
-                <div>
-                  <img src={data.largeImgURL} key={data.id} width="300" height="200"/>
-                </div>
-            </div>
+           {user.map(data=>(
+               <div>
+                   <li key = {data.id}><b>Trail Name: {data.name}</b></li>
+                   <p>Trail Difficulty on scale of 5: {data.difficulty}</p>
+                   <p>Address: {data.address + ", " + data.city + "," + data.zip}</p>
+                   <p>Image from Trail</p>
+                   <div>
+                     <img src={data.largeImgURL} key={data.id} width="300" height="200"/>
+                   </div>
+               <br/>
+               </div>
+           ))}
         </div>
+
     );
 }
 export default ApiTest;
