@@ -2,35 +2,33 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { db } from "./firebase-config";
 import { collection, doc, getDocs } from "firebase/firestore";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import ApiTest from "./Pages/ApiTest";
-import PreferenceForm from "./Pages/PreferenceForm";
+
+import { Container, Row, Col } from 'react-bootstrap';
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import Home from "./components/Home"
+import ApiTest from "./components/ApiTest"
+import { Routes, Route } from "react-router-dom"
+import { UserAuthContextProvider } from './context/UserAuthContext';
+import ProtectedRoute from "./context/ProtectedRoute";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(db, "users")
-  useEffect(() =>{
-    const getUsers = async() => {
-      const data = await getDocs(usersCollectionRef);
-      console.log(data);
-      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    }
-    getUsers()
-  }, [])
-
 
   return (
-    <div className="App">
-      {/*{users.map((user) => {*/}
-      {/*  return <div> <h1> Name: {user.name}</h1></div>*/}
-      {/*})}*/}
-    <Router>
-        <Switch>
-            <Route exact path="/getApi" component={ApiTest} />
-            <Route exact path="/preference" component={PreferenceForm} />
-        </Switch>
-    </Router>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+        <UserAuthContextProvider>
+          <Routes>
+            <Route path = "/" element = {<Login />} />
+            <Route path = "/signup" element = {<Signup />} />
+            <Route path = "/home" element = {<ProtectedRoute> <Home /> </ProtectedRoute>} />
+            <Route path = "/getdata" element = {<ApiTest />} />
+          </Routes>
+        </UserAuthContextProvider> 
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
