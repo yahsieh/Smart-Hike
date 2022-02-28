@@ -4,6 +4,7 @@ import { db } from "./firebase-config";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ApiTest from "./Pages/ApiTest";
+import PreferenceForm from "./Pages/PreferenceForm";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -20,12 +21,13 @@ function App() {
 
   return (
     <div className="App">
-      {users.map((user) => {
-        return <div> <h1> Name: {user.name}</h1></div>
-      })}
+      {/*{users.map((user) => {*/}
+      {/*  return <div> <h1> Name: {user.name}</h1></div>*/}
+      {/*})}*/}
     <Router>
         <Switch>
             <Route exact path="/getApi" component={ApiTest} />
+            <Route exact path="/preference" component={PreferenceForm} />
         </Switch>
     </Router>
     </div>
