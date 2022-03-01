@@ -43,28 +43,32 @@ const Login = () => {
               placeholder="Email address"
               onChange={ (e) => setEmail(e.target.value) }/>
           </Form.Group>
-
+          <br />
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Password"
               onChange={ (e) => setPassword(e.target.value) }/>
           </Form.Group>
-
+          <br />
           <div className="d-grid gap-2">
             <Button variant="primary" type="Submit">
               Log In
             </Button>
           </div>
+          <br />
+          <br />
+          <div className="text-center">
+            <GoogleButton onClick={handleGoogleSignIn}/>
+          </div>
+
+          <br />
+          <div className="p-4 box mt-3 text-center">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </div>
         </Form>
-        <hr />
-        <div>
-          <GoogleButton onClick={handleGoogleSignIn}/>
-        </div>
       </div>
-      <div className="p-4 box mt-3 text-center">
-        Don't have an account? <Link to="/signup">Sign up</Link>
-      </div>
+      
     </>
   );
 };
