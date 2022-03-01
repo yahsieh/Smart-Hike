@@ -12,6 +12,7 @@ import { Routes, Route } from "react-router-dom"
 import { UserAuthContextProvider } from './context/UserAuthContext';
 import ProtectedRoute from "./context/ProtectedRoute";
 import PreferenceForm from "./components/PreferenceForm";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path = "/home" element = {<ProtectedRoute> <Home /> </ProtectedRoute>} />
             <Route path = "/getdata" element = {<ApiTest />} />
             <Route path="/preference" element={ <PreferenceForm /> } />
+            <Route path="/forgotPassword" element={ <ForgotPassword /> } />
           </Routes>
         </UserAuthContextProvider> 
         </Col>

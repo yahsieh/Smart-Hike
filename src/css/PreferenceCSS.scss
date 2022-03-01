@@ -30,6 +30,7 @@ body {
     background: $color-grey-light;
 }
 
+
 form {
     padding: remy(32px);
     margin-top: 2rem;
@@ -42,6 +43,7 @@ form {
 }
 
 h1 {
+    padding-top: remy(32px);
     margin-top: 0;
     margin-bottom: 3.236rem;
     text-align: center;
