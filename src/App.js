@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import { UserAuthContextProvider } from './context/UserAuthContext';
 import ProtectedRoute from "./context/ProtectedRoute";
 import PreferenceForm from "./components/PreferenceForm";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Routes>
             <Route path = "/" element = {<Login />} />
             <Route path = "/signup" element = {<Signup />} />
-            <Route path = "/preference" element = {<ProtectedRoute> <PreferenceForm /> </ProtectedRoute>} />
+            <Route path = "/preference" element = {<ProtectedRoute> <PreferenceForm /> </ProtectedRoute>} />  
+            <Route path="/forgotPassword" element={ <ForgotPassword /> } />         
           </Routes>
         </UserAuthContextProvider> 
         </Col>
