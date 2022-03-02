@@ -16,7 +16,7 @@ const Login = () => {
       setErr("");
       try {
           await login(email, password);
-          navigate("/home")
+          navigate("/preference")
       } catch (err) {
           setErr(err.message)
       }
@@ -26,7 +26,7 @@ const Login = () => {
     setErr("");
     try {
         await googleSignIn();
-        navigate("/home")
+        navigate("/preference")
     } catch (err) {
         setErr(err.message)
     }
