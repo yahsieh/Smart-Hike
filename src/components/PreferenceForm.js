@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import '../css/PreferenceCSS.scss';
+import { useUserAuth } from "../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const initialFormData = Object.freeze({
     city: '',
@@ -18,7 +20,7 @@ const PreferenceForm = () => {
         });
     };
     const apiGet = () => {
-        if(formData.zipcode != '')
+        if(formData.zipcode !== '')
             fetch('https://prescriptiontrails.org/api/filter/?by=zip&zip='+formData.zipcode+'&offset=0&count=10')
                 .then((response) => response.json())
                 .then((json) => {
@@ -26,7 +28,7 @@ const PreferenceForm = () => {
                     console.log(parsedArray);
                     setUser(parsedArray);
                 });
-        else if(formData.name != '')
+        else if(formData.name !== '')
             fetch('https://prescriptiontrails.org/api/filter/?by=name&name='+formData.name+'&offset=0&count=10')
                 .then((response) => response.json())
                 .then((json) => {
@@ -34,7 +36,7 @@ const PreferenceForm = () => {
                     console.log(parsedArray);
                     setUser(parsedArray);
                 });
-        else if(formData.city != '')
+        else if(formData.city !== '')
             fetch('https://prescriptiontrails.org/api/filter/?by=city&city='+formData.city+'&offset=0&count=10')
                 .then((response) => response.json())
                 .then((json) => {
@@ -48,6 +50,22 @@ const PreferenceForm = () => {
         e.preventDefault()
         apiGet();
     };
+
+    //Signout
+    const [err, setErr] = useState();
+    const navigate = useNavigate();
+    const { logout } = useUserAuth();
+    const handleLogout = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            await logout();
+            navigate("/")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
+
     return (
         <div>
         <form noValidate>
@@ -78,7 +96,9 @@ const PreferenceForm = () => {
                        required />
             </div>
             <button className="btn btn-primary"
-                    onClick={ handleSubmit }>submit</button>
+                    onClick={ handleSubmit }>submit
+            </button>
+            <br />
         </form>
             <div id="outPopUp">
                 <br/>
@@ -89,12 +109,15 @@ const PreferenceForm = () => {
                         <p>Address: {data.address + ", " + data.city + "," + data.zip}</p>
                         <p>Image from Trail</p>
                         <div>
-                            <img src={data.largeImgURL} key={data.id} width="300" height="200"/>
+                            <img alt = "Trailhead" src={data.largeImgURL} key={data.id} width="300" height="200"/>
                         </div>
                         <br/>
                     </div>
                 ))}
             </div>
+            <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{marginLeft: 1400}}>
+              Log Out
+            </button>
         </div>
     );
 }
