@@ -1,98 +1,101 @@
-import React  from "react";
+import React, {useState} from "react";
 import '../css/PreferenceCSS.scss';
 
-class PreferenceForm extends React.Component {
+const initialFormData = Object.freeze({
+    city: '',
+    zipcode: '',
+    name: ''
+});
 
-    constructor(props) {
-        super(props);
+const PreferenceForm = () => {
+    const [formData, updateFormData] = React.useState(initialFormData);
+    const[user, setUser] = useState([]);
 
-        this.state = {
-            city: '',
-            zipcode: '',
-            difficulty: '',
-            surface: '',
-            loop: ''
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        e.target.classList.add('active');
-
-        this.setState({
-            [e.target.name]: e.target.value
+    const handleChange = (e) => {
+        updateFormData({
+            ...formData,
+            [e.target.name]: e.target.value.trim()
         });
+    };
+    const apiGet = () => {
+        if(formData.zipcode != '')
+            fetch('https://prescriptiontrails.org/api/filter/?by=zip&zip='+formData.zipcode+'&offset=0&count=10')
+                .then((response) => response.json())
+                .then((json) => {
+                    let parsedArray = json.trails;
+                    console.log(parsedArray);
+                    setUser(parsedArray);
+                });
+        else if(formData.name != '')
+            fetch('https://prescriptiontrails.org/api/filter/?by=name&name='+formData.name+'&offset=0&count=10')
+                .then((response) => response.json())
+                .then((json) => {
+                    let parsedArray = json.trails;
+                    console.log(parsedArray);
+                    setUser(parsedArray);
+                });
+        else if(formData.city != '')
+            fetch('https://prescriptiontrails.org/api/filter/?by=city&city='+formData.city+'&offset=0&count=10')
+                .then((response) => response.json())
+                .then((json) => {
+                    let parsedArray = json.trails;
+                    console.log(parsedArray);
+                    setUser(parsedArray);
+                });
+    };
 
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        console.log('component state', JSON.stringify(this.state));
-    }
-
-    render() {
-        return (
-            <form noValidate>
-                <div className="form-group">
-                    <label id="city">City</label>
-                    <input className="form-control"
-                           type="text"
-                           name="city"
-                           ref="city"
-                           value={ this.state.city }
-                           onChange={ this.handleChange }
-                           required />
-                </div>
-                <div className="form-group">
-                    <label id="zipcode">ZipCode</label>
-                    <input className="form-control"
-                           type="text"
-                           name="zipcode"
-                           ref="zipcode"
-                           value={ this.state.zipcode }
-                           onChange={ this.handleChange }
-                           required />
-                </div>
-                <div className="form-group">
-                    <label id="difficulty">Difficulty</label>
-                    <input className="form-control"
-                           type="text"
-                           name="difficulty"
-                           ref="difficulty"
-                           value={ this.state.difficulty }
-                           onChange={ this.handleChange }
-                           required />
-                </div>
-
-                <div className="form-group">
-                    <label id="surface">Surface Type</label>
-                    <input className="form-control"
-                           type="text"
-                           name="surface"
-                           ref="surface"
-                           value={ this.state.surface }
-                           onChange={ this.handleChange }
-                           required />
-                </div>
-
-                <div className="form-group">
-                    <label id="loop">Loop Count</label>
-                    <input className="form-control"
-                           type="text"
-                           name="loop"
-                           ref="loop"
-                           value={ this.state.loop}
-                           onChange={ this.handleChange }
-                           required />
-                </div>
-                <button className="btn btn-primary"
-                        onClick={ this.handleSubmit }>submit</button>
-            </form>
-        );
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        apiGet();
+    };
+    return (
+        <div>
+        <form noValidate>
+            <div><h2><b>Preferences</b></h2></div>
+            <div><p><b>Filter on any ONE of the below fields</b></p></div>
+            <div className="form-group">
+                <label id="name">Name</label>
+                <input className="form-control"
+                       type="text"
+                       name="name"
+                       onChange={ handleChange }
+                       required />
+            </div>
+            <div className="form-group">
+                <label id="city">City</label>
+                <input className="form-control"
+                       type="text"
+                       name="city"
+                       onChange={ handleChange }
+                       required />
+            </div>
+            <div className="form-group">
+                <label id="zipcode">ZipCode</label>
+                <input className="form-control"
+                       type="text"
+                       name="zipcode"
+                       onChange={ handleChange }
+                       required />
+            </div>
+            <button className="btn btn-primary"
+                    onClick={ handleSubmit }>submit</button>
+        </form>
+            <div id="outPopUp">
+                <br/>
+                {user.map(data=>(
+                    <div>
+                        <li key = {data.id}><b>Trail Name: {data.name}</b></li>
+                        <p>Trail Difficulty on scale of 5: {data.difficulty}</p>
+                        <p>Address: {data.address + ", " + data.city + "," + data.zip}</p>
+                        <p>Image from Trail</p>
+                        <div>
+                            <img src={data.largeImgURL} key={data.id} width="300" height="200"/>
+                        </div>
+                        <br/>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
-
 export default PreferenceForm;
