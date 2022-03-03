@@ -76,6 +76,9 @@ const PreferenceForm = () => {
 
     return (
         <div>
+            <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>
+              Log Out
+            </button>
         <form noValidate>
             <div><h2><b>Preferences</b></h2></div>
             <div><p><b>Filter on any ONE of the below fields</b></p></div>
@@ -123,9 +126,7 @@ const PreferenceForm = () => {
                     </div>
                 ))}
             </div>
-            <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{marginLeft: 1400}}>
-              Log Out
-            </button>
+            
         </div>
     );
 }
