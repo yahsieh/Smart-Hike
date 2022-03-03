@@ -44,6 +44,14 @@ const PreferenceForm = () => {
                     console.log(parsedArray);
                     setUser(parsedArray);
                 });
+        else
+            fetch('https://prescriptiontrails.org/api/filter/?by=city&city=Albuquerque&offset=0&count=20')
+                 .then((response) => response.json())
+                 .then((json) => {
+                     let parsedArray = json.trails;
+                     console.log(parsedArray);
+                     setUser(parsedArray);
+                 });
     };
 
     const handleSubmit = (e) => {
