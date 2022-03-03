@@ -9,7 +9,7 @@ const Login = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [err, setErr] = useState();
-    const { login, googleSignIn } = useUserAuth();
+    const { login, googleSignIn } = useUserAuth() || {};
     const navigate = useNavigate();
     const handleLogin = async (e) =>{
       e.preventDefault();
@@ -33,18 +33,18 @@ const Login = () => {
 }
   return (
     <>
-      <div className="p-4 box">
+      <div data-testid="login-page" className="p-4 box">
         <h2 className="mb-3">Firebase Auth Login</h2>
         {err && <Alert variant="danger">{err}</Alert>}
-        <Form onSubmit={ handleLogin }>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form data-testid="login-form" onSubmit={ handleLogin }>
+          <Form.Group data-testid="login-basic-email" className="mb-3" controlId="formBasicEmail">
             <Form.Control
               type="email"
               placeholder="Email address"
               onChange={ (e) => setEmail(e.target.value) }/>
           </Form.Group>
-          <br />
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+
+          <Form.Group data-testid="login-basic-password" className="mb-3" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Password"
@@ -52,7 +52,7 @@ const Login = () => {
           </Form.Group>
           <br />
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
+            <Button data-testid="login-button" variant="primary" type="Submit">
               Log In
             </Button>
           </div>
@@ -62,13 +62,14 @@ const Login = () => {
           </div>
           <br />
           <div className="text-center">
-            <GoogleButton onClick={handleGoogleSignIn}/>
+            <GoogleButton data-testid="google-login-button" onClick={handleGoogleSignIn}/>
           </div>
           <br />
           <div className="p-4 box mt-3 text-center">
-            Don't have an account? <Link to="/signup">Sign up</Link>
+            Don't have an account? <Link data-testid = "link-to-signup" to="/signup">Sign up</Link>
           </div>
         </Form>
+        <hr />
       </div>
       
     </>
