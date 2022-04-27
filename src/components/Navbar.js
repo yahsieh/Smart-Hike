@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useUserAuth } from "../context/UserAuthContext";
+import { Button } from "react-bootstrap";
 import '../css/NavbarCSS.scss';
 
 const Navbar = () => {
-    const { user } = useUserAuth();
+    const { user, logout } = useUserAuth();
+    const handleLogout = async () => {
+        try {
+            await logout();
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+    
     return(
         <nav className='navbar'>
             <div id='navlogo'>
@@ -24,6 +33,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink className='navlink' to='/forgotPassword' id={user ? '': 'hidden'}>
                 Account
+            </NavLink>
+            <NavLink className='navlink' to='/' onClick={handleLogout} id={user ? '' : 'hidden'}> 
+                Log out 
             </NavLink>
         </nav>
     );
