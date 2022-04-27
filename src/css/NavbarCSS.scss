@@ -1,0 +1,45 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    height: var(--navbarpadding);
+    width: 100%;
+    z-index: 100;
+    
+    background-color: white;
+    border: 1px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navlink {
+    border: 1px solid forestgreen;
+    border-radius: 25px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+#navlogo {
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid forestgreen;
+    border-radius: 25px;
+}
+
+// USER AUTH HIDDENS
+#active {
+    color: yellow;
+}
+
+#hidden {
+    color: black;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border: 0px;
+    font-size: 0px;
+}

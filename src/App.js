@@ -1,6 +1,7 @@
 import './App.css';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Nav } from 'react-bootstrap';
+import NavBar from "./components/Navbar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -16,6 +17,7 @@ function App() {
       <Row>
         <Col>
           <UserAuthContextProvider>
+            <NavBar></NavBar>
             <Routes>
               <Route path="/" element={< Home />} />
               <Route path="/login" element={<Login />} />
