@@ -83,6 +83,16 @@ const PreferenceForm = () => {
         }
     }
 
+    const handleSettings = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            navigate("/settings")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
+
     return (
         <div>
             <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>
@@ -91,6 +101,11 @@ const PreferenceForm = () => {
             <button className="btn btn-primary" onClick = { handleHikingClothes } variant="primary" type="Submit" style={{}}>
               Hiking Clothes
             </button>
+
+            <button className="btn btn-primary" onClick = { handleSettings } variant="primary" type="Submit" style={{}}>
+              Settings
+            </button>
+
         <form noValidate>
             <div><h2><b>Preferences</b></h2></div>
             <div><p><b>Filter on any ONE of the below fields</b></p></div>
