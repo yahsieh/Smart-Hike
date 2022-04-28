@@ -22,16 +22,16 @@ const Navbar = () => {
             <div id='navlogo'>
                 LOGO
             </div>
-            <NavLink className='navlink' to='/'>
+            <NavLink className='navlink' to='/' id='home'>
                 Home
             </NavLink>
             <NavLink className='navlink' to='/preference' id={user ? '' : 'hidden'}>
                 Search
             </NavLink>
-            <NavLink className='navlink' to='/login' id={user ? 'hidden' : ''}>
+            <NavLink className='navlink' to='/login' id={user ? 'hidden' : 'login'}>
                 Login
             </NavLink>
-            <NavLink className='navlink' to='/signup' id={user ? 'hidden' : ''}>
+            <NavLink className='navlink' to='/signup' id={user ? 'hidden' : 'signup'}>
                 Signup
             </NavLink>
             <NavLink className='navlink' to='/forgotPassword' id={user ? '': 'hidden'}>

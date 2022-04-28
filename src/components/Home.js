@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PhotoAlbum } from "react-photo-album";
 import { useNavigate } from "react-router-dom";
+import { useUserAuth } from "../context/UserAuthContext";
 import photos from "../photos";
 import '../css/HomeCSS.scss';
 
@@ -14,6 +15,7 @@ const searchData = Object.freeze({
 const Home = () => {
     const[sData, updateSearchData] = React.useState(searchData);
     const history = useNavigate();
+    const { user } = useUserAuth();
 
     // Handling change in text fields
     const handleChange = (e) => {
@@ -26,9 +28,13 @@ const Home = () => {
 
     // Sending input text to /preference page
     const handleSubmit = (e) => {
-        e.preventDefault()
-        // console.log(sData);
-        history("/preference", {state:{data: sData}});
+        if(user) {
+            e.preventDefault()
+            // console.log(sData);
+            history("/preference", {state:{data: sData}});
+        } else {
+            history("/login");
+        }
     };
 
     return (
