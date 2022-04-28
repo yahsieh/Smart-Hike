@@ -1,4 +1,7 @@
+// NAVIGATION CONTAINER
 .navbar {
+    
+    // Sticky navbar
     position: fixed;
     top: 0;
     height: var(--navbarpadding);
@@ -6,8 +9,9 @@
     z-index: 100;
     
     background-color: white;
-    border: 1px solid red;
+    // border: 1px solid red;
 
+    // Content alignment
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -15,8 +19,9 @@
     padding-right: 10px;
 }
 
+// NAVIGATION CONTENT
 .navlink {
-    border: 1px solid forestgreen;
+    // border: 1px solid forestgreen;
     border-radius: 25px;
     padding: 10px 10px 10px 10px;
     margin-left: 5px;
@@ -24,10 +29,11 @@
     text-decoration: none;
 }
 
+// LOGO
 #navlogo {
     margin-right: auto;
     padding: 10px 10px 10px 10px;
-    border: 1px solid forestgreen;
+    // border: 1px solid forestgreen;
     border-radius: 25px;
 }
 
@@ -36,6 +42,7 @@
     color: yellow;
 }
 
+// NAVBAR CONTENT HIDER
 #hidden {
     color: black;
     padding: 0px 0px 0px 0px;

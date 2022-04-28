@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useUserAuth } from "../context/UserAuthContext";
-import { Button } from "react-bootstrap";
 import '../css/NavbarCSS.scss';
 
 const Navbar = () => {
     const { user, logout } = useUserAuth();
+
+    // Logout Handler
     const handleLogout = async () => {
         try {
             await logout();
@@ -13,8 +14,10 @@ const Navbar = () => {
             console.log(err.message);
         }
     }
-    
+
     return(
+        // id={user ? 'hidden' or '' : 'hidden' or ''}
+        // Hides navlink content based on user authentication context
         <nav className='navbar'>
             <div id='navlogo'>
                 LOGO
