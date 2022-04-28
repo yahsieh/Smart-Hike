@@ -73,11 +73,23 @@ const PreferenceForm = () => {
             setErr(err.message)
         }
     }
+    const handleHikingClothes = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            navigate("/hikingclothes")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
 
     return (
         <div>
             <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>
               Log Out
+            </button>
+            <button className="btn btn-primary" onClick = { handleHikingClothes } variant="primary" type="Submit" style={{}}>
+              Hiking Clothes
             </button>
         <form noValidate>
             <div><h2><b>Preferences</b></h2></div>
