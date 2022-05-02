@@ -100,12 +100,12 @@ const PreferenceForm = () => {
 
     return (
         <div>
-            <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>
+            {/* <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>
               Log Out
             </button>
             <button className="btn btn-primary" onClick = { handleHikingClothes } variant="primary" type="Submit" style={{}}>
               Hiking Clothes
-            </button>
+            </button> >>>>>ADDED TO NAVBAR<<<<<*/}
         <form noValidate>
             <div><h2><b>Preferences</b></h2></div>
             <div><p><b>Filter on any ONE of the below fields</b></p></div>
