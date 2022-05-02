@@ -130,4 +130,53 @@ textarea {
 &:focus {
      outline: 0;
  }
+ 
 }
+#hikingClothesParagraph{
+    font-size: 25px;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+#hikingClothesTitle{
+    font-size: 45px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+#card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+#card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+#columnHikingClothes {
+    float: left;
+    width: 33.33%; //scales for number of pictures 2 is 50% 3 is 50%
+    padding: 15px;
+  }
+  
+/* Clear floats after image containers */
+#rowHikingClothes::after {
+    content: "";
+    clear: both;
+    display: table;
+   
+  }
+  #cardHikingClothes{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;  
+  }
+  //increased from 8px 16px for a more popping effect on hover
+  #cardHikingClothes:hover {
+    box-shadow: 0 64px 128px 0 rgba(0,0,0,0.2); 
+  }
+  #hikingClothesContainer {
+    padding: 2px 16px;
+  }
+  #hikingClothesCategories{
+    font-size: 35px;
+  }
+  
