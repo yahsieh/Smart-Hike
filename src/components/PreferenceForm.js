@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import '../css/PreferenceCSS.scss';
 import { useUserAuth } from "../context/UserAuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const initialFormData = Object.freeze({
     city: '',
@@ -13,12 +13,27 @@ const PreferenceForm = () => {
     const [formData, updateFormData] = React.useState(initialFormData);
     const[user, setUser] = useState([]);
 
+    // Getting search result from home page & displaying results once
+    const history = useLocation();
+    const [historyFlag, updateHistoryFlag] = useState([]);
+    useEffect(() => {
+        if(history.state && historyFlag !== 'done') {
+            //console.log(history.state.data);
+            updateFormData(history.state.data);
+            updateHistoryFlag('done');
+        }
+        if(historyFlag === 'done') {
+            apiGet();
+        }
+    }, [historyFlag], []);
+
     const handleChange = (e) => {
         updateFormData({
             ...formData,
             [e.target.name]: e.target.value.trim()
         });
     };
+
     const apiGet = () => {
         if(formData.zipcode !== '')
             fetch('https://prescriptiontrails.org/api/filter/?by=zip&zip='+formData.zipcode+'&offset=0&count=10')
@@ -55,7 +70,7 @@ const PreferenceForm = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         apiGet();
     };
 
@@ -138,7 +153,6 @@ const PreferenceForm = () => {
                     </div>
                 ))}
             </div>
-            
         </div>
     );
 }
