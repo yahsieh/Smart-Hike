@@ -40,13 +40,13 @@ const ForgotPassword = () => {
             </Button>
           </div>
           <br />
-          <div className="p-4 box mt-3 text-center">
+          {/* <div className="p-4 box mt-3 text-center">
             <Link to="/">Login</Link>
           </div>
           <br />
           <div className="p-4 box mt-3 text-center">
             Don't have an account? <Link to="/signup">Sign up</Link>
-          </div>
+          </div> */}
         </Form>
       </div>
       

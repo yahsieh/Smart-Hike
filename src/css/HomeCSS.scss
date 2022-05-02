@@ -1,0 +1,56 @@
+// SEARCH INPUT TEXT
+#search-box {
+    // POSITION
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-left: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+
+    // DIMENSIONS
+    height: 40px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    // STYLING
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0px 0px 50px;
+    border-radius: 25px;
+}
+
+// SEARCH SUBMIT BUTTON
+#search-box button {
+
+    // POSITION
+    float: right;
+    margin-left: auto;
+
+    // DIMENSIONS
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 25px;
+
+    // STYLING
+    color: white;
+    background-color: black;
+    border: none;
+    font-weight: bold;
+}
+
+.form-horizontal {
+    float: left;
+}
+
+.form-horizontal input {
+    float: right;
+    border-radius: 25px;
+    border: none;
+}

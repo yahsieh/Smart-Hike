@@ -1,0 +1,74 @@
+// NAVIGATION CONTAINER
+.navbar {
+    
+    // Sticky navbar
+    position: fixed;
+    top: 0;
+    height: var(--navbarpadding);
+    width: 100%;
+    z-index: 100;
+    
+    // Styling
+    font-weight: bold;
+    background-color: white;
+    // border: 1px solid red;
+
+    // Content alignment
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+// NAVIGATION CONTENT
+.navlink {
+    // border: 1px solid forestgreen;
+    border-radius: 25px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+
+    // Styling
+    color: black;
+}
+
+// LOGO
+#navlogo {
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+    // border: 1px solid forestgreen;
+    border-radius: 25px;
+    color: white;
+    background-color: black;
+}
+
+// NAVLINK SPECIFICS
+#home {
+    color: black;
+}
+
+#login {
+    background-color: black;
+    color: white;
+}
+
+#signup {
+    background-color: lightgray;
+    color: black;
+}
+
+// USER AUTH HIDDENS
+#active {
+    color: yellow;
+}
+
+// NAVBAR CONTENT HIDER
+#hidden {
+    color: black;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border: 0px;
+    font-size: 0px;
+}
