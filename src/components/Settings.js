@@ -26,9 +26,9 @@ const Settings = () => {
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Hind+Siliguri:wght@500&family=Prompt&family=Roboto:wght@300;400&display=swap" rel="stylesheet"></link>
-        <button className="btn btn-primary" onClick = {handlePreferences} variant="primary" type="Submit" style={{}}>
+        {/*<button className="btn btn-primary" onClick = {handlePreferences} variant="primary" type="Submit" style={{}}>
         Preferences
-        </button>
+        </button> >>>>>ADDED TO NAVBAR<<<<<*/}
 
         <h1 id ="SettingsTitle">Settings</h1> 
 
