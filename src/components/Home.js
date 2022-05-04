@@ -3,6 +3,7 @@ import { PhotoAlbum } from "react-photo-album";
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 import photos from "../photos";
+import { TrailCard } from './TrailCard';
 import '../css/HomeCSS.scss';
 
 // matching data with preference form
@@ -55,6 +56,8 @@ const Home = () => {
             </div>
             {/* <h1> Welcome {user.email}</h1> */}
             <PhotoAlbum layout="columns" photos={photos} />
+            <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+            <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
         </div>
     )
 }
