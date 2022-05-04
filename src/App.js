@@ -12,7 +12,7 @@ import { Routes, Route } from "react-router-dom";
 import { UserAuthContextProvider } from './context/UserAuthContext';
 import ProtectedRoute from "./context/ProtectedRoute";
 import PreferenceForm from "./components/PreferenceForm";
-import ForgotPassword from "./components/ForgotPassword";
+import Account from "./components/Account";
 import HikingClothes from './components/HikingClothes';
 import Settings from './components/Settings';
 
@@ -30,8 +30,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/preference" element={<ProtectedRoute> <PreferenceForm /> </ProtectedRoute>} />
               <Route path="/hikingclothes" element={<HikingClothes/>} />
-              <Route path = "/settings" element = {<Settings/>}/>   
-              <Route path="/forgotPassword" element={<ForgotPassword />} />
+              <Route path="/settings" element={<Settings/>}/>   
+              <Route path="/account" element={<Account />} />
             </Routes>
           </UserAuthContextProvider>
         </Col>

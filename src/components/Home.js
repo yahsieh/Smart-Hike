@@ -39,6 +39,7 @@ const Home = () => {
 
     return (
         <div>
+            <PhotoAlbum layout="columns" photos={photos} />
             <div id="search-box">
                 <div className="form-horizontal">
                     <input type="text" name="name" onChange={ handleChange } placeholder="Name" required />
@@ -54,7 +55,6 @@ const Home = () => {
                 </button>
             </div>
             {/* <h1> Welcome {user.email}</h1> */}
-            <PhotoAlbum layout="columns" photos={photos} />
         </div>
     )
 }
