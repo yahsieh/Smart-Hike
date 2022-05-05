@@ -38,23 +38,32 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div id="homepage">
             <PhotoAlbum layout="columns" photos={photos} />
-            <div id="search-box">
-                <div className="form-horizontal">
-                    <input type="text" name="name" onChange={ handleChange } placeholder="Name" required />
+            <div id="main-container">
+                <div id="search-box-container">
+                    <div id="search-box-banner">
+                        <h1> Welcome {user ? user.email : ""}</h1>
+                            Start your adventure!
+                    </div>
+                    <div id="search-box">
+                        <div className="form-horizontal">
+                            <input type="text" name="name" onChange={ handleChange } placeholder="Name" required />
+                        </div>
+                        <div className="form-horizontal">
+                            <input type="text" name="city" onChange={ handleChange } placeholder="City" required />
+                        </div>
+                        <div className="form-horizontal">
+                            <input type="text" name="zipcode" onChange={ handleChange } placeholder="Zipcode" required />
+                        </div>
+                        <button onClick={ handleSubmit }>
+                            search
+                        </button>
+                    </div>
                 </div>
-                <div className="form-horizontal">
-                    <input type="text" name="city" onChange={ handleChange } placeholder="City" required />
+                <div id="favorite-trails-container">
                 </div>
-                <div className="form-horizontal">
-                    <input type="text" name="zipcode" onChange={ handleChange } placeholder="Zipcode" required />
-                </div>
-                <button onClick={ handleSubmit }>
-                    search
-                </button>
             </div>
-            {/* <h1> Welcome {user.email}</h1> */}
         </div>
     )
 }

@@ -15,6 +15,7 @@ import PreferenceForm from "./components/PreferenceForm";
 import Account from "./components/Account";
 import HikingClothes from './components/HikingClothes';
 import Settings from './components/Settings';
+import ForgotPassword from './components/ForgotPassword';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/hikingclothes" element={<HikingClothes/>} />
               <Route path="/settings" element={<Settings/>}/>   
               <Route path="/account" element={<Account />} />
+              <Route path="/forgotpassword" element={<ForgotPassword />} />
             </Routes>
           </UserAuthContextProvider>
         </Col>
