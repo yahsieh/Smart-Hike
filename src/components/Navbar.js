@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useUserAuth } from "../context/UserAuthContext";
 import '../css/NavbarCSS.scss';
 
+import Ava from "react-avatar";
+
 const Navbar = () => {
     const { user, logout } = useUserAuth();
 
@@ -22,6 +24,11 @@ const Navbar = () => {
             <div id='navlogo'>
                 LOGO
             </div>
+
+            <div id = 'pfp'>
+                <Ava name= {user.email} size="40" round = {true}/>
+            </div>
+
             <NavLink className='navlink' to='/' id='home'>
                 Home
             </NavLink>
