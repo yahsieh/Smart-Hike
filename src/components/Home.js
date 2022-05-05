@@ -64,19 +64,11 @@ const Home = () => {
                 </div>
                 <div id="favorite-trails-container">
                     <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Beach" img="https://prescriptiontrails.org/admin/new/images/1450551300tingly.jpg" />
+                    <TrailCard name="Tiguex Park" img="https://prescriptiontrails.org/admin/new/images/1450551924tiguex.jpg" />
+                    <TrailCard name="Durand Open Space" img="https://prescriptiontrails.org/admin/new/images/1454876314Durand.jpg" />
+                    <TrailCard name="Gutierrez-Hubbell Open Space" img="https://prescriptiontrails.org/admin/new/images/1450749670CIMG6601.JPG" />
+                    <TrailCard name="Pajarito Open Space" img="https://prescriptiontrails.org/admin/new/images/1451166297Pajarito.jpg" />                
                 </div>
             </div>
         </div>
