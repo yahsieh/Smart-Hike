@@ -63,12 +63,22 @@ const Home = () => {
                     </div>
                 </div>
                 <div id="favorite-trails-container">
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
+                    <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
                 </div>
             </div>
-            {/* <h1> Welcome {user.email}</h1> */}
-            <PhotoAlbum layout="columns" photos={photos} />
-            <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
-            <TrailCard name="Tingley Field" img="https://prescriptiontrails.org/admin/new/images/square_1455036748P1130010.jpg" />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Modal } from "react-bootstrap";
 import { TrailInfo } from './TrailInfo';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/TrailCard.scss';
 
 const TrailCard = (props) => {
