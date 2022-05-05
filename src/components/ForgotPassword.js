@@ -23,10 +23,10 @@ const ForgotPassword = () => {
   return (
     <>
       <div className="p-4 box">
-        <h1 className="center">Forgot Password</h1>
         {err && <Alert variant="danger">{err}</Alert>}
         {message && <Alert variant="success">{message}</Alert>}
         <Form onSubmit={ handleLogin }>
+          <h1 className="center">Forgot Password</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
               type="email"

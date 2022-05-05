@@ -1,0 +1,11 @@
+#account {
+
+    // DIMENSIONS
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - var(--navbarpadding));
+    padding: 20px 20px 20px 20px;
+
+    // STYLING
+    gap: 30px;
+}

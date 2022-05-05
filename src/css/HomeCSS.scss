@@ -1,27 +1,81 @@
+// HOMEPAGE CONTAINER
+#homepage {
+    height: calc(100vh - var(--navbarpadding));
+    overflow: hidden;
+}
+
+// MAIN CONTENT
+#main-container {
+    // POSITIONING
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    
+    // DIMENSIONS
+    height: calc(100vh - var(--navbarpadding));
+    min-width: 850px;
+    padding-top: 115px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    // STYLING
+    gap: 50px;
+}
+
+// SEARCH CONTAINER
+#search-box-container {
+    // POSITION
+    display: flex;
+    justify-content: center;
+
+    // DIMENSION
+    min-height: 200px;
+    width: 100%;
+
+    // STYLING
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0px 0px 50px black;
+    // border: 1px solid blue;
+}
+
+// SEARCH BANNER
+#search-box-banner {
+    // POSITION
+    position: absolute;
+    text-align: center;
+    margin-top: 0px;
+
+    // DIMENSIONS
+    min-width: 755px;
+    width: inherit;
+
+    // STYLING
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 0px;
+    color: black;
+    // border: 1px solid yellow;
+}
+
 // SEARCH INPUT TEXT
 #search-box {
     // POSITION
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-left: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8%;
+    margin-top: 130px;
 
     // DIMENSIONS
     height: 40px;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-width: 755px;
     
     // STYLING
     background-color: white;
     border: 1px solid black;
-    box-shadow: 0px 0px 50px;
+    box-shadow: 0px 0px 50px black;
     border-radius: 25px;
 }
 
@@ -53,4 +107,19 @@
     float: right;
     border-radius: 25px;
     border: none;
+}
+
+// Favorite Trails
+#favorite-trails-container{
+
+    // DIMENSIONS
+    min-height: 500px;
+    height: 100%;
+    width: 90%;
+
+    // STYLING
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0px 0px 50px black;
+    // border: 1px solid red;
 }

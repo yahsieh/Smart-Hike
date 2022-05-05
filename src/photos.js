@@ -25,6 +25,11 @@ const unsplashPhotos = [
     { id: "GbLS6YVXj0U", width: 1080, height: 810 },
     { id: "9CRd1J1rEOM", width: 1080, height: 720 },
     { id: "xKhtkhc9HbQ", width: 1080, height: 1440 },
+    { id: "twukN12EN7c", width: 1080, height: 694 },
+    { id: "9UjEyzA6pP4", width: 1080, height: 1620 },
+    { id: "sEXGgun3ZiE", width: 1080, height: 720 },
+    { id: "S-cdwrx-YuQ", width: 1080, height: 1440 },
+    { id: "q-motCAvPBM", width: 1080, height: 1620 },
 ];
 
 const photos = unsplashPhotos.map((photo) => ({
