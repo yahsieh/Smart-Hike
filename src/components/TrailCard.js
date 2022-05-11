@@ -3,7 +3,7 @@ import { Card, Modal } from "react-bootstrap";
 import { TrailInfo } from './TrailInfo';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/TrailCard.scss';
-
+import '../css/PreferenceCSS.scss';
 const TrailCard = (props) => {
     const [show, setShow] = useState(false);
     const [weather, setWeather] = useState({
@@ -53,10 +53,13 @@ const TrailCard = (props) => {
     };
     return (
         <>
-            <Card id="trailcard" style={{ padding: "15px", float: "left", cursor: "pointer" }} onClick={handleTrailClick} >
+            <Card id="trailcard" style={{ padding: "32.5px", float: "left", cursor: "pointer" }} onClick={handleTrailClick} >
                 <Card.Img variant="top" src={props.img} height="180" width="240" />
                 <Card.Body>
-                    <Card.Title>{props.name}</Card.Title>
+                    <Card.Title>
+                    <div id="hikingClothesContainer">
+                    <h3><center>{props.name}</center></h3>
+                    </div></Card.Title>
                     <Card.Text>
                         {props.text}
                     </Card.Text>

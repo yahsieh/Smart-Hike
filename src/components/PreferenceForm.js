@@ -107,6 +107,15 @@ const PreferenceForm = () => {
             setErr(err.message)
         }
     }
+    const handleHikingGear = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            navigate("/hikinggear")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
 
     return (
         <div>

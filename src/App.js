@@ -16,6 +16,7 @@ import Account from "./components/Account";
 import HikingClothes from './components/HikingClothes';
 import Settings from './components/Settings';
 import ForgotPassword from './components/ForgotPassword';
+import HikingGear from './components/HikingGear';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/preference" element={<ProtectedRoute> <PreferenceForm /> </ProtectedRoute>} />
               <Route path="/hikingclothes" element={<HikingClothes/>} />
+              <Route path="/hikinggear" element={<HikingGear/>} />
               <Route path="/settings" element={<Settings/>}/>   
               <Route path="/account" element={<Account />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
