@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, Modal } from "react-bootstrap";
 import { TrailInfo } from './TrailInfo';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/TrailCard.scss';
+import '../css/Modal.scss';
 
 const TrailCard = (props) => {
     const [show, setShow] = useState(false);
