@@ -8,3 +8,45 @@
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
 }
+
+.modal-body>tr>td {
+    display: table-row;
+}
+
+.weather {
+    width: 100px;
+    height: 100px;
+    overflow: visible;
+    &>h4 {
+        font-size: small;
+    }
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+.rate {
+    float: left;
+    height: 30px;
+    width: 100%;
+    // padding: 0 10px;
+}
+
+.rate>span {
+    height: 27px;
+}
+
+.rate:not(:checked)>label {
+    float: left;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>label.checked {
+    color: #ffc700;
+}

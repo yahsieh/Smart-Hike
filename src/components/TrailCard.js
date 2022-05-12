@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Modal } from "react-bootstrap";
 import { TrailInfo } from './TrailInfo';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/TrailCard.scss';
-import '../css/PreferenceCSS.scss';
+import '../css/Modal.scss';
+
 const TrailCard = (props) => {
     const [show, setShow] = useState(false);
     const [weather, setWeather] = useState({
@@ -14,22 +14,25 @@ const TrailCard = (props) => {
                 description: ''
             }
         ],
-        cod: 401
+        sys: {
+            sunrise: -1,
+            sunset: -1,
+        },
+        cod: -1
     });
     const [info, setInfo] = useState({
         name: '',
-        address: ''
+        address: '',
+        zip: ''
     });
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const handleTrailClick = () => {
-        setShow(true);
+    const updateInfo = () => {
         // only update trail and weather info once
         if (info.name === '') {
             setInfo(TrailInfo[0].trails.find((v) => v.name === props.name))
-            console.debug(TrailInfo[0].trails)
+            console.debug(TrailInfo[0].trails.find((v) => v.name === props.name))
         }
-        if (weather.cod !== 200 && info.zip !== undefined) {
+        if (weather.cod !== 200 && info.zip !== '') {
             // get longitude & latitude from geolocationapi
             fetch('http://api.openweathermap.org/geo/1.0/zip?zip=' + info.zip +
                 ',us&appid=' + process.env.REACT_APP_WEATHER_API_KEY
@@ -46,11 +49,53 @@ const TrailCard = (props) => {
                         .then((json) => {
                             if (json.cod === 200) {
                                 setWeather(json);
+                                console.debug(json);
                             }
                         });
                 });
         }
+    }
+    const handleTrailClick = () => {
+        setShow(true);
+        updateInfo();
     };
+    useEffect(() => {
+        // update weather info every 2s
+        const interval = setInterval(() => {
+            updateInfo();
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [info, weather])
+    const difficultyInStars = (stars) => {
+        return (
+            <div className="rate">
+                {(stars >= 1 && (<label className="checked" />)) || (<label />)}
+                {(stars >= 2 && (<label className="checked" />)) || (<label />)}
+                {(stars >= 3 && (<label className="checked" />)) || (<label />)}
+                {(stars >= 4 && (<label className="checked" />)) || (<label />)}
+                {(stars >= 5 && (<label className="checked" />)) || (<label />)}
+            </div>
+        )
+    }
+    const getWeather = (weather) => {
+        return (
+            <>
+                <div className="weather">
+                    <img id="wicon" src={"http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"} alt="Weather icon" />
+                    <h4>
+                        {weather.main.temp_max + "° / " + weather.main.temp_min + "°F"}
+                    </h4>
+                </div>
+                <div>
+                    {/* <FontAwesomeIcon icon="sunrise" /> */}
+                    <i className="fa-solid fa-sunrise"></i>
+                </div>
+                <p>Sunrise: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString('en-US')}</p>
+                <p>Sunset: {new Date(weather.sys.sunset * 1000).toLocaleTimeString('en-US')}</p>
+
+            </>
+        )
+    }
     return (
         <>
             <Card id="trailcard" style={{ padding: "32.5px", float: "left", cursor: "pointer" }} onClick={handleTrailClick} >
@@ -70,19 +115,26 @@ const TrailCard = (props) => {
                     <Modal.Title>{props.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div>
-                        <p>Trail Difficulty: {info.difficulty}</p>
-                        <p>Address: {info.address + ", " + info.city + "," + info.zip}</p>
-                        <div>
-                            <img alt="Trailhead" src={info.largeImgURL} key={info.id} width="300" height="200" />
-                        </div>
+                    <tr>
+                        <td>Trail Difficulty:</td>
+                        <td>{difficultyInStars(info.difficulty)}
+                        </td>
+                        <td>{getWeather(weather)}</td>
                         <br />
-                    </div>
+                    </tr>
                     <div>
-                        <p>Temp: {weather.main.temp}</p>
-                        <p>{weather.weather[0].main}</p>
-                        <p>{weather.weather[0].description}</p>
+                        <img alt="Trailhead" src={info.largeImgURL} key={info.id} width="300" height="200" />
                     </div>
+                    <br />
+                    <iframe
+                        width="450"
+                        height="250"
+                        frameBorder="0"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyDXp5DL_W_hZtUe7GHOuhkPZAzMUfByhaQ&q=" + info.address + "," + info.city}
+                    >
+                    </iframe>
+                    <br />
                 </Modal.Body>
             </Modal>
         </>
