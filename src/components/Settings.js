@@ -4,11 +4,14 @@ import '../css/Settings.scss';
 import { useNavigate } from "react-router-dom";
 import DarkMode from "./DarkMode.tsx";
 import { Container, Row, Col } from 'react-bootstrap';
-import { db } from "../firebase-config";
+import { storage, db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-import Avatar from "react-avatar-edit";
-import Ava from "react-avatar";
+import Avatar from "@mui/material/Avatar";
+import IconButton from '@mui/material/IconButton';
+
+import alternate from "./pfp/trailpic.jpeg"
 
 
 const initialDefaultData = Object.freeze({
@@ -19,7 +22,8 @@ const initialDefaultData = Object.freeze({
 
 const Settings = () => {
     const [ defaultData, updateDefaultData ] = React.useState(initialDefaultData);
-    const [ preview, setPreview] = React.useState(null);
+    const [ image, setImage ] = React.useState(null);
+    const [ url, setUrl ] = React.useState(null);
     const { user } = useUserAuth();
     const defaultCollectionRef = collection(db, "default");
     const [err, setErr] = useState();
@@ -62,7 +66,7 @@ const Settings = () => {
     };
 
     // submit default form
-    const handleSubmit = (e) => {
+    const handleDefaultSubmit = (e) => {
         e.preventDefault();
         if(defaultData.name !== '' && defaultData.city !== '' && defaultData.zipcode !== ''
             && /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(defaultData.zipcode)) {
@@ -72,61 +76,57 @@ const Settings = () => {
         }
     }
 
-    const navigate = useNavigate();
-    const handlePreferences = async (e) =>{
-        e.preventDefault();
-        setErr("");
-        try {
-            navigate("/preference")
-        } catch (err) {
-            setErr(err.message)
-        }
+    const handleImageChange = (e) => {
+        {/*setImage({
+            preview: URL.createObjectURL(e.target.files[0]),
+            raw: e.target.files[0]
+        })*/}
+        setImage(e.target.files[0]);
+    };
+
+    const errorHandler = () => {
+        setUrl(alternate);
     }
 
-    function onClose() {
-        setPreview(null);
-    }
-    function onCrop(pv) {
-        setPreview(pv);
-    }
-    function onBeforeFileLoad(elem) {
-        if (elem.target.files[0].size > 2000000) {
-            alert("File is too big!");
-            elem.target.value = "";
-        }
-    }
-
-
+    const handleImageSubmit = (e) => {
+        const imageRef = ref(storage, "pfp");
+        uploadBytes(imageRef, image).then(() => {
+            getDownloadURL(imageRef).then((url) => {
+                console.log("successfully grabbed image url");
+                setUrl(url);
+            })
+            .catch(error => {
+                console.log(error.message, "error getting image file"); 
+            });
+            setImage(null);
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
+    };
 
     return (
 
         <div className="p-4 box" >
                 <form noValidate>
 
-                    <Container
+                    {/*<Container
                         style={{ justifyContent: "center", display: "flex", alignItems: "center"
-                    }}>
-                        <Ava name= {user.email} size="150" round = {true}/>
-                    </Container>
-
+                    }}>*/}
+                        {/*<input
+                            accept="image/*"
+                            id="icon-button-file"
+                            type="file"
+                            onChange = {handleImageChange}
+                        />*/}
                     <Avatar
-                        width={320}
-                        height={150}
-                        onCrop={onCrop}
-                        onClose={onClose}
-                        onBeforeFileLoad={onBeforeFileLoad}
-                        placeholderSource={require('./pfp/trailpic.jpeg')}
-                        src= {null}
-                      />
-                      <br/>
-                      {preview && (
-                        <>
-                          <img src={preview} alt="Preview" />
-                          <a href={preview} download="avatar">
-                            Save Pic
-                          </a>
-                        </>
-                      )}
+                      src= {url}
+                      sx= {{ width: 100, height: 100 }}
+                      variant = "square"
+                      imgProps={{onError: errorHandler,}}
+                    />
+                    <input type = "file" onChange = {handleImageChange} />
+                    <button onClick = {handleImageSubmit}> upload </button>
 
                     <div><h2><b>Change Mode</b></h2></div>
 
@@ -182,7 +182,7 @@ const Settings = () => {
                     </div>
 
                     {/* SUBMISSION BUTTON */}
-                    <button className="btn btn-primary" onClick={ handleSubmit }>Submit</button>
+                    <button className="btn btn-primary" onClick={ handleDefaultSubmit }>Submit</button>
                 </form>
             </div>
 
