@@ -1,0 +1,11 @@
+// HIDE RADIO BUTTONS
+input[type="radio"] {
+    display: none;
+}
+
+
+// STAR COLORING
+.star {
+    cursor: pointer;
+    transition: fill 400ms ease;
+}
