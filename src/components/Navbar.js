@@ -34,6 +34,9 @@ const Navbar = () => {
             <NavLink className='navlink' to='/hikinggear' id={user ? '' : 'hidden'}>
                 Hiking Gear
             </NavLink>
+            <NavLink className='navlink' to='/precautions' id={user ? '' : 'hidden'}>
+                Precautions
+            </NavLink>
             <NavLink className='navlink' to='/settings' id={user ? '' : 'hidden'}>
                 Settings
             </NavLink>
