@@ -107,7 +107,24 @@ const PreferenceForm = () => {
             setErr(err.message)
         }
     }
-
+    const handleHikingGear = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            navigate("/hikinggear")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
+    const handlePrecautions = async (e) =>{
+        e.preventDefault();
+        setErr("");
+        try {
+            navigate("/precautions")
+        } catch (err) {
+            setErr(err.message)
+        }
+    }
     return (
         <div>
             {/* <button className="btn btn-primary" onClick = { handleLogout } variant="primary" type="Submit" style={{}}>

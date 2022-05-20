@@ -179,4 +179,11 @@ textarea {
   #hikingClothesCategories{
     font-size: 35px;
   }
+  #imageBorder{
+    transition: .2s;
+    border: 8px solid rgba(85, 85, 85, 0.862);
+}
+  #imageBorder:hover{
+    transform: scale(1.1);
+}
   

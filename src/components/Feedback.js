@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useUserAuth } from "../context/UserAuthContext";
 import '../css/FeedbackCSS.scss';
 import { db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
+import emailjs, { send } from 'emailjs-com';
 
 const initialFeedbackData = Object.freeze({
     email: '',
@@ -61,20 +62,34 @@ const Feedback = () => {
         e.preventDefault();
         if(feedbackData.content !== '' && feedbackData.subect !== '') {
             addDoc(feedbackCollectionRef, feedbackData);
+            sendEmail(e);
         } else {
             console.log("EMPTY CONTENT or EMPTY SUBJECT");
         }
     }
 
+    // SEND EMAIL
+    const form = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_qcpdhis', form.current, process.env.REACT_APP_EMAILJS_API_KEY)
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+    }
+
     return(
         <>
             <div className="p-4 box" >
-                <form noValidate>
+                <form ref={form} noValidate>
                     <div><h2><b>Feedback</b></h2></div>
 
                     {/* FEEDBACK EMAIL */}
                     <label id="user">Email</label>
-                    <div className="form-group">
+                    <div className="form-group" name="from_name">
                         {user.email}
                     </div> 
                     
