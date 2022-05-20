@@ -3,7 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useUserAuth } from "../context/UserAuthContext";
 import '../css/NavbarCSS.scss';
 
-import Ava from "react-avatar";
+import Avatar from "@mui/material/Avatar";
+import alternate from "./pfp/uci_logo.png"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
     const { user, logout } = useUserAuth();
@@ -26,7 +29,11 @@ const Navbar = () => {
             </div>
 
             <div id = 'pfp'>
-                <Ava name= {user.email} size="40" round = {true}/>
+                <Avatar
+                  src= {user ? user.photoURL : alternate}
+                  sx= {{ width: 40, height: 40 }}
+                  variant = "circle"
+                />
             </div>
 
             <NavLink className='navlink' to='/' id='home'>

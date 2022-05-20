@@ -9,7 +9,7 @@ export default function Profile() {
   const currentUser = useAuth();
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [photoURL, setPhotoURL] = useState(alternate);
+  const [photoURL, setPhotoURL] = useState(null);
 
   function handleImageChange(e) {
     if (e.target.files[0]) {
@@ -53,7 +53,7 @@ export default function Profile() {
           justifyContent: "center",
           alignItems: "center"
       }}>
-        <input type = "file" onChange = {handleImageChange} />
+        <input type = "file" onChange = {handleImageChange} accept = "image/*"/>
         <button disabled={loading||!photo} onClick = {handleImageSubmit}> upload </button>
       </Container>
 

@@ -1,18 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { useUserAuth } from "../context/UserAuthContext";
 import '../css/Settings.scss';
-import { useNavigate } from "react-router-dom";
 import DarkMode from "./DarkMode.tsx";
-import { Container, Row, Col } from 'react-bootstrap';
-import { storage, db } from "../firebase-config";
+import { Container } from 'react-bootstrap';
+import { db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
-import Avatar from "@mui/material/Avatar";
-import IconButton from '@mui/material/IconButton';
-
-import alternate from "./pfp/trailpic.jpeg"
-
+import PFP from "./Profile.js"
 
 const initialDefaultData = Object.freeze({
     name: '',
@@ -22,8 +15,6 @@ const initialDefaultData = Object.freeze({
 
 const Settings = () => {
     const [ defaultData, updateDefaultData ] = React.useState(initialDefaultData);
-    const [ image, setImage ] = React.useState(null);
-    const [ url, setUrl ] = React.useState(null);
     const { user } = useUserAuth();
     const defaultCollectionRef = collection(db, "default");
     const [err, setErr] = useState();
@@ -47,7 +38,6 @@ const Settings = () => {
             name: e.target.value.trim()
         });
     };
-
 
     // grab city
     const handleChangeCity = (e) => {
@@ -76,35 +66,6 @@ const Settings = () => {
         }
     }
 
-    const handleImageChange = (e) => {
-        {/*setImage({
-            preview: URL.createObjectURL(e.target.files[0]),
-            raw: e.target.files[0]
-        })*/}
-        setImage(e.target.files[0]);
-    };
-
-    const errorHandler = () => {
-        setUrl(alternate);
-    }
-
-    const handleImageSubmit = (e) => {
-        const imageRef = ref(storage, "pfp");
-        uploadBytes(imageRef, image).then(() => {
-            getDownloadURL(imageRef).then((url) => {
-                console.log("successfully grabbed image url");
-                setUrl(url);
-            })
-            .catch(error => {
-                console.log(error.message, "error getting image file"); 
-            });
-            setImage(null);
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
-    };
-
     return (
 
         <div className="p-4 box" >
@@ -119,14 +80,8 @@ const Settings = () => {
                             type="file"
                             onChange = {handleImageChange}
                         />*/}
-                    <Avatar
-                      src= {url}
-                      sx= {{ width: 100, height: 100 }}
-                      variant = "square"
-                      imgProps={{onError: errorHandler,}}
-                    />
-                    <input type = "file" onChange = {handleImageChange} />
-                    <button onClick = {handleImageSubmit}> upload </button>
+                
+                    <PFP />
 
                     <div><h2><b>Change Mode</b></h2></div>
 
