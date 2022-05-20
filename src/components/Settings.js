@@ -1,69 +1,149 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useUserAuth } from "../context/UserAuthContext";
 import '../css/Settings.scss';
-import { useNavigate } from "react-router-dom";
 import DarkMode from "./DarkMode.tsx";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { db } from "../firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+import PFP from "./Profile.js"
 
+const initialDefaultData = Object.freeze({
+    name: '',
+    city: '',
+    zipcode: ''
+});
 
-//route back to preference page 
 const Settings = () => {
+    const [ defaultData, updateDefaultData ] = React.useState(initialDefaultData);
+    const { user } = useUserAuth();
+    const defaultCollectionRef = collection(db, "default");
     const [err, setErr] = useState();
-    const navigate = useNavigate();
-    const handlePreferences = async (e) =>{
+
+    {/* Debug */}
+    useEffect(() => {
+        console.log(defaultData);
+    }, [defaultData])
+
+    useEffect(() => {
+        updateDefaultData({
+            ...defaultData,
+            email: user.email
+        });
+    }, [user])
+
+    // Grab name
+    const handleChangeName = (e) => {
+        updateDefaultData({
+            ...defaultData,
+            name: e.target.value.trim()
+        });
+    };
+
+    // grab city
+    const handleChangeCity = (e) => {
+        updateDefaultData({
+            ...defaultData,
+            city: e.target.value.trim()
+        });
+    };
+
+    // grab zipcode
+    const handleChangeZipcode = (e) => {
+        updateDefaultData({
+            ...defaultData,
+            zipcode: e.target.value.trim()
+        });
+    };
+
+    // submit default form
+    const handleDefaultSubmit = (e) => {
         e.preventDefault();
-        setErr("");
-        try {
-            navigate("/preference")
-        } catch (err) {
-            setErr(err.message)
+        if(defaultData.name !== '' && defaultData.city !== '' && defaultData.zipcode !== ''
+            && /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(defaultData.zipcode)) {
+            addDoc(defaultCollectionRef, defaultData);
+        } else {
+            console.log("missing content/invalid zipcode");
         }
     }
+
     return (
-    <div>
 
-        <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Prompt&display=swap" rel="stylesheet"></link>
+        <div className="p-4 box" >
+                <form noValidate>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
-        <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Hind+Siliguri:wght@500&family=Prompt&family=Roboto:wght@300;400&display=swap" rel="stylesheet"></link>
-        {/*<button className="btn btn-primary" onClick = {handlePreferences} variant="primary" type="Submit" style={{}}>
-        Preferences
-        </button> >>>>>ADDED TO NAVBAR<<<<<*/}
+                    {/*<Container
+                        style={{ justifyContent: "center", display: "flex", alignItems: "center"
+                    }}>*/}
+                        {/*<input
+                            accept="image/*"
+                            id="icon-button-file"
+                            type="file"
+                            onChange = {handleImageChange}
+                        />*/}
+                
+                    <PFP />
 
-        <h1 id ="SettingsTitle">Settings</h1> 
+                    <div><h2><b>Change Mode</b></h2></div>
 
-    <Container
-        style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    }}>
-        <DarkMode />
-    </Container>    
+                    <Container
+                        style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+                        <DarkMode />
+                    </Container>  
 
-    <Container
-    style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    }}>
-    <Container>
-        Change Default City: 
-        <input type = "text" name = 'enter' class = 'textboxsize'/>
+                    <div><h2><b>Change Defaults</b></h2></div>
 
-        Change Default Zipcode:
-        <input type ="text" name = 'enter' class = 'textboxsize'/>
+                    {/* Change Trail name */}
+                    <label id="message"><br></br>name</label>
+                    <div className="form-group">
+                        <textarea 
+                            className="fb-text"
+                            name="message" 
+                            rows="1" 
+                            cols="5"
+                            placeholder="Trail Name"
+                            onChange={ handleChangeName }>
+                        </textarea>
+                    </div>
 
-        <button type = "submit">
-        Submit
-        </button>
 
-    </Container>
+                    {/* Change City */}
+                    <label id="message"><br></br>city</label>
+                    <div className="form-group">
+                        <textarea 
+                            className="fb-text"
+                            name="message" 
+                            rows="1" 
+                            cols="5"
+                            placeholder="City Name"
+                            onChange={ handleChangeCity }>
+                        </textarea>
+                    </div>
 
-    </Container>
+                    {/* Change Zipcode */}
+                    <label id="message"><br></br>zipcode</label>
+                    <div className="form-group">
+                        <textarea 
+                            className="fb-text"
+                            name="message" 
+                            rows="1" 
+                            cols="5"
+                            placeholder="Zipcode"
+                            onChange={ handleChangeZipcode }>
+                        </textarea>
+                    </div>
 
-    </div>
+                    {/* SUBMISSION BUTTON */}
+                    <button className="btn btn-primary" onClick={ handleDefaultSubmit }>Submit</button>
+                </form>
+            </div>
+
     );
-}
+};
+
+
 export default Settings;
 
