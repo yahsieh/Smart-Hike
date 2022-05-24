@@ -1,0 +1,24 @@
+#favorites-container {
+    // DIMENSIONS
+    height: calc(100vh - var(--navbarpadding));
+    width: 100%;
+
+    // STYLING
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 0px 0px 0px 0px;
+    
+    // border: 1px solid red;
+}
+
+.favorites-card-container {
+    display: flex;
+    flex-flow: column;
+    max-height: 320px;
+
+    // border: 1px solid green;
+}

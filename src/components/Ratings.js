@@ -65,7 +65,7 @@ const Ratings = (props) => {
                 </label>
                 );
             })}
-            {parseFloat(props.rating).toPrecision(3)/1}
+            {/* {parseFloat(props.rating).toPrecision(3)/1} */}
         </div>
     );
 }

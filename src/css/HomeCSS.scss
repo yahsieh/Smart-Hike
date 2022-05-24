@@ -8,22 +8,18 @@
 #main-container {
     // POSITIONING
     position: absolute;
-    top: 0px;
+    top: var(--navbarpadding);
     bottom: 0px;
     left: 0px;
     right: 0px;
+    overflow-y: hidden;
     
     // DIMENSIONS
     height: calc(100vh - var(--navbarpadding));
     min-width: 850px;
-    padding-top: 115px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 
     // STYLING
-    gap: 50px;
+    background-color: white;
 }
 
 // SEARCH CONTAINER
@@ -33,14 +29,14 @@
     justify-content: center;
 
     // DIMENSION
-    min-height: 200px;
+    height: 400px;
     width: 100%;
 
     // STYLING
-    background-color: white;
-    border: 1px solid black;
-    box-shadow: 0px 0px 50px black;
-    // border: 1px solid blue;
+    background: url("../assets/pexels-ezra-comeau-2387418.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 // SEARCH BANNER
@@ -49,6 +45,7 @@
     position: absolute;
     text-align: center;
     margin-top: 0px;
+    top: 100px;
 
     // DIMENSIONS
     min-width: 755px;
@@ -58,15 +55,14 @@
     font-weight: bold;
     font-size: 45px;
     line-height: 0px;
-    color: black;
-    // border: 1px solid yellow;
+    color: white;
 }
 
 // SEARCH INPUT TEXT
 #search-box {
     // POSITION
     position: absolute;
-    margin-top: 130px;
+    top: 250px;
 
     // DIMENSIONS
     height: 40px;
@@ -110,22 +106,91 @@
 }
 
 // Favorite Trails
-#favorite-trails-container{
+#favorite-trails-main-container {
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
 
+#favorite-trails-banner {
     // DIMENSIONS
-    width: 100%;
+    height: 40px;
+    padding-top: 15px;
+    padding-left: 10px;
+    width: 85%;
 
     // STYLING
-    background-color: white;
-    border: 1px solid black;
-    box-shadow: 0px 0px 50px black;
-    // border: 1px solid red;
+    font-weight: bold;
+    font-size: 40px;
+}
 
-    padding: 50px 50px 50px 50px;
+#favorite-trails{
+    // DIMENSIONS
+    height: 360px;
+    width: 85%;
+
+    // STYLING
+    padding-left: 10px;
+    padding-top: 40px;
+    overflow-y: hidden;
     display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
-    justify-content: space-evenly;
+    gap: 45px;
+    overflow-x: auto;
+}
+
+#card-container {
+    height: 303px;
+}
+
+#rating {
+    position: relative;
+    top: -133px;
+    left: 33px;
+}
+
+#heart {
+    position: relative;
+    top: -350px;
+    left: 245px;
+    width: 0px;
+    background-color: white;
+    border: none;
+
+    cursor: pointer;
+}
+
+// EXAMPLE PHOTOS
+#example-photos-main-container {
+    width: 100%;
+    height: 519px;
+    background: black;
+    
+    display: flex;
     align-items: center;
-    row-gap: 2em;
+    flex-flow: column;
+}
+
+#example-photos-banner {
+    // Dimensions
+    height: 80px;
+    padding-left: 10px;
+    padding-top: 15px;
+    width: 85%;
+
+    // STYLING
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+}
+
+#example-photos-content {
+    width: 85%;
+    overflow: auto;
+    padding-top: 15px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

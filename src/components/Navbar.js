@@ -61,6 +61,9 @@ const Navbar = () => {
             <NavLink className='navlink' to='/signup' id={user ? 'hidden' : 'signup'}>
                 Signup
             </NavLink>
+            <NavLink className='navlink' to='/favorites' id={user ? '': 'hidden'}>
+                Favorites
+            </NavLink>
             <NavLink className='navlink' to='/account' id={user ? '': 'hidden'}>
                 Account
             </NavLink>

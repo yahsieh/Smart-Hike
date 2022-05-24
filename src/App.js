@@ -18,6 +18,7 @@ import Settings from './components/Settings';
 import ForgotPassword from './components/ForgotPassword';
 import HikingGear from './components/HikingGear';
 import Precautions from './components/Precautions';
+import Favorites from './components/Favorites';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/settings" element={<Settings/>}/>   
               <Route path="/account" element={<Account />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
+              <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </UserAuthContextProvider>
         </Col>
