@@ -102,9 +102,9 @@ const TrailCard = (props) => {
                 <Card.Img variant="top" src={props.img} height="180" width="240" />
                 <Card.Body>
                     <Card.Title>
-                    <div id="hikingClothesContainer">
-                    <h3><center>{props.name}</center></h3>
-                    </div></Card.Title>
+                        <div id="hikingClothesContainer">
+                            <h3><center>{props.name}</center></h3>
+                        </div></Card.Title>
                     <Card.Text>
                         {props.text}
                     </Card.Text>
@@ -131,7 +131,7 @@ const TrailCard = (props) => {
                         height="250"
                         frameBorder="0"
                         referrerPolicy="no-referrer-when-downgrade"
-                        src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyDXp5DL_W_hZtUe7GHOuhkPZAzMUfByhaQ&q=" + info.address + "," + info.city}
+                        src={"https://www.google.com/maps/embed/v1/place?key=" + process.env.REACT_APP_MAP_API_KEY + "&q=" + info.address + "," + info.city}
                     >
                     </iframe>
                     <br />
