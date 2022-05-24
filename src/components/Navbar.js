@@ -51,10 +51,6 @@ const Navbar = () => {
             <NavLink className='navlink' to='/precautions' id={user ? '' : 'hidden'}>
                 Precautions
             </NavLink>
-            <NavLink className='navlink' to='/settings' id={user ? '' : 'hidden'}>
-                Settings
-            </NavLink>
-
             <NavLink className='navlink' to='/login' id={user ? 'hidden' : 'login'}>
                 Login
             </NavLink>

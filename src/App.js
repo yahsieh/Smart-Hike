@@ -35,7 +35,6 @@ function App() {
               <Route path="/hikingclothes" element={<HikingClothes/>} />
               <Route path="/hikinggear" element={<HikingGear/>} />
               <Route path="/precautions" element={<Precautions/>} />
-              <Route path="/settings" element={<Settings/>}/>   
               <Route path="/account" element={<Account />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route path="/favorites" element={<Favorites />} />

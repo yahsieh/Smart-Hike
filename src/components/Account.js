@@ -1,6 +1,7 @@
 import React from "react";
 import ForgotPassword from "./ForgotPassword";
 import Feedback from "./Feedback";
+import Settings from "./Settings";
 import '../css/AccountCSS.scss';
 
 const Account = () => {
@@ -8,6 +9,7 @@ const Account = () => {
         <div id="account">
             {/* <ForgotPassword /> */}
             <Feedback />
+            <Settings/>
         </div>
     );
 };
