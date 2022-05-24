@@ -20,6 +20,8 @@ import HikingGear from './components/HikingGear';
 import Precautions from './components/Precautions';
 import Favorites from './components/Favorites';
 import TipsGear from './components/TipsGear';
+import City from './components/City';
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
               <Route path="/account" element={<Account />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/City" element={<City />} />
             </Routes>
           </UserAuthContextProvider>
         </Col>
