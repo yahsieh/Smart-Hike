@@ -1,0 +1,25 @@
+#tips-main {
+    top: var(--navbarpadding);
+}
+
+#tipsnav {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: black;
+}
+
+.tipsnav-link {
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+#highlight {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}

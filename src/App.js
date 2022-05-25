@@ -19,6 +19,7 @@ import ForgotPassword from './components/ForgotPassword';
 import HikingGear from './components/HikingGear';
 import Precautions from './components/Precautions';
 import Favorites from './components/Favorites';
+import TipsGear from './components/TipsGear';
 
 function App() {
   return (
@@ -32,9 +33,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/preference" element={<ProtectedRoute> <PreferenceForm /> </ProtectedRoute>} />
-              <Route path="/hikingclothes" element={<HikingClothes/>} />
-              <Route path="/hikinggear" element={<HikingGear/>} />
-              <Route path="/precautions" element={<Precautions/>} />
+              <Route path="/TipsGear" element={<TipsGear />} />
               <Route path="/account" element={<Account />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route path="/favorites" element={<Favorites />} />

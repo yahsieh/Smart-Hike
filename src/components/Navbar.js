@@ -42,14 +42,8 @@ const Navbar = () => {
             <NavLink className='navlink' to='/preference' id={user ? '' : 'hidden'}>
                 Search
             </NavLink>
-            <NavLink className='navlink' to='/hikingclothes' id={user ? '' : 'hidden'}>
-                Hiking Clothes
-            </NavLink>
-            <NavLink className='navlink' to='/hikinggear' id={user ? '' : 'hidden'}>
-                Hiking Gear
-            </NavLink>
-            <NavLink className='navlink' to='/precautions' id={user ? '' : 'hidden'}>
-                Precautions
+            <NavLink className='navlink' to='/tipsgear' id={user ? '' : 'hidden'}>
+                Tips &#38; Gear
             </NavLink>
             <NavLink className='navlink' to='/login' id={user ? 'hidden' : 'login'}>
                 Login
