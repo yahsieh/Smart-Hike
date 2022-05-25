@@ -25,7 +25,7 @@ const HikingGear = () => {
             <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Hind+Siliguri:wght@500&family=Prompt&family=Roboto:wght@300;400&display=swap" rel="stylesheet"></link>
             <h1 id ="hikingClothesTitle">Suggested Hiking Gear</h1> 
             <p id="hikingClothesParagraph">
-            The gear you bring with you on a hike can help make your hiking experience a lot better. Some recommended gear to bring on a hike are a :
+            The gear you bring with you on a hike can help make your hiking experience better. Some recommended gear to bring on a hike are a :
             <ul id = "hikingClothesParagraph">
             <li>Compass</li>
             <li>Trekking Poles</li>
