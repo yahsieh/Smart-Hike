@@ -15,7 +15,7 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo[0].trails.filter((trail) => (trail.city === "Albuquerque")).map((trail) => (
+                        TrailInfo[0].trails.filter((trail) => (trail.city === "Albuquerque")).slice(0, 10).map((trail) => (
                             <div key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                             </div>
