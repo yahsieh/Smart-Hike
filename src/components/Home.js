@@ -33,7 +33,7 @@ const Home = () => {
         };
 
         getRatings();
-    });
+    }, []);
 
     useEffect(() => {
         const getFavorites = async () => {

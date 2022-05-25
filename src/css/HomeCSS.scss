@@ -12,7 +12,7 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    overflow-y: hidden;
+    // overflow-y: hidden;
     
     // DIMENSIONS
     height: calc(100vh - var(--navbarpadding));
@@ -164,7 +164,7 @@
 // EXAMPLE PHOTOS
 #example-photos-main-container {
     width: 100%;
-    height: 519px;
+    // height: 519px;
     background: black;
     
     display: flex;
