@@ -20,7 +20,7 @@ const Navbar = () => {
         }
     }
 
-    return(
+    return (
         // id={user ? 'hidden' or '' : 'hidden' or ''}
         // Hides navlink content based on user authentication context
         <nav className='navbar'>
@@ -38,6 +38,9 @@ const Navbar = () => {
 
             <NavLink className='navlink' to='/' id='home'>
                 Home
+            </NavLink>
+            <NavLink className='navlink' to='/city' id='city'>
+                City
             </NavLink>
             <NavLink className='navlink' to='/preference' id={user ? '' : 'hidden'}>
                 Search
@@ -57,8 +60,8 @@ const Navbar = () => {
             <NavLink className='navlink' to='/account' id={user ? '': 'hidden'}>
                 Account
             </NavLink>
-            <NavLink className='navlink' to='/' onClick={handleLogout} id={user ? '' : 'hidden'}> 
-                Log out 
+            <NavLink className='navlink' to='/' onClick={handleLogout} id={user ? '' : 'hidden'}>
+                Log out
             </NavLink>
         </nav>
     );

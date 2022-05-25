@@ -2442,6 +2442,89 @@ export const TrailInfo = [{
             "ModifiedTime": "2016-02-25 01:14:00",
             "reviews": 0,
             "url": "https://prescriptiontrails.org/trail/62/apodaca-park/"
+        },
+        {
+            "id": 13,
+            "name": "Hal Bogle Sports Complex",
+            "city": "Chaves County",
+            "zip": 88230,
+            "crossstreets": "Lincoln and Sixth",
+            "address": "584 Lincoln Ave.",
+            "transit": "None",
+            "lat": "33.191422",
+            "lng": "-104.372488",
+            "desc": "Hal%20Bogle%20moved%20to%20New%20Mexico%20in%20the%20early%201900%E2%80%99s%20due%20to%20health%20reasons.%20To%20survive%20the%20depression%2C%20he%20farmed%20and%20traded%20mules%20and%20horses.%20During%20this%20time%2C%20he%20acquired%20sizable%20amounts%20of%20farming%20and%20ranching%20land%20in%20New%20Mexico.%20He%20donated%20a%20portion%20of%20that%20land%20for%20what%20is%20now%20called%20the%20Hal%20Bogle%20Sports%20Complex%20in%20Dexter.%20",
+            "lighting": "None",
+            "difficulty": 2,
+            "surface": "Natural pathway, roadway",
+            "parking": "On site",
+            "facilities": "Trash cans",
+            "hours": "Dawn to dusk",
+            "loopcount": 1,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1451420004halBogSat.jpg",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1451420013halBog.jpg",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1451420013halBog.jpg",
+            "attractions": [
+                "Baseball%20fields",
+                "Softball%20fields",
+                "Soccer%20fields",
+                "Restrooms%20open%20during%20scheduled%20events",
+                "Great%20views"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Main",
+                    "distance": "0.5",
+                    "steps": 1056
+                }
+            },
+            "published": "true",
+            "rating": 3,
+            "ratings": 1,
+            "favorites": 0,
+            "ModifiedTime": "2016-02-25 01:14:00",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/13/hal-bogle-sports-complex/"
+        },
+        {
+            "id": 14,
+            "name": "Hagerman Bobcat Stadium",
+            "city": "Chaves County",
+            "zip": 88232,
+            "crossstreets": "Argyle and Sterling",
+            "address": "696 Sterling St",
+            "transit": "None",
+            "lat": "33.1128461",
+            "lng": "-104.3188012",
+            "desc": "Hagerman%20Bobcat%20Stadium%20Football%20Field%20and%20Track%20development%20was%20started%20in%201990%20and%20was%20completed%20in%202011.%20The%20rubberized%20surface%20is%20great%20for%20walking.%20Note%3A%20Not%20wheelchair%20accessible%2C%20gateway%20available%20only%20to%20pedestrians%2C%20no%20dogs%20allowed.",
+            "lighting": "For events",
+            "difficulty": 1,
+            "surface": "Wide, rubberized surface",
+            "parking": "On site",
+            "facilities": "Restrooms across street at Community Center during business hours",
+            "hours": "Dawn to dusk",
+            "loopcount": 1,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1451421461Untitled.jpg",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1451421468bobcat.jpg",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1451421468bobcat.jpg",
+            "attractions": [
+                "Picnic%20area",
+                "Grills"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Main",
+                    "distance": ".25",
+                    "steps": 528
+                }
+            },
+            "published": "true",
+            "rating": 3,
+            "ratings": 1,
+            "favorites": 1,
+            "ModifiedTime": "2016-02-25 01:14:00",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/14/hagerman-bobcat-stadium/"
         }
     ]
 }]
