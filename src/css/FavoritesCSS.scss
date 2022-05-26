@@ -1,13 +1,26 @@
+#favorites-main-container {
+    width: 100%;
+    height: calc(100vh - var(--navbarpadding));
+}
+
+#favorites-banner {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    height: 250px;
+    padding-top: 150px;
+}
+
 #favorites-container {
     // DIMENSIONS
-    height: calc(100vh - var(--navbarpadding));
+    height: calc(100vh - var(--navbarpadding) - 250px);
     width: 100%;
 
     // STYLING
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    align-content: flex-start;
+    justify-content: center;
     padding-left: 10px;
     padding-top: 10px;
     margin: 0px 0px 0px 0px;
@@ -18,7 +31,26 @@
 .favorites-card-container {
     display: flex;
     flex-flow: column;
-    max-height: 320px;
+    max-height: 340px;
+    background-color: white;
+}
 
-    // border: 1px solid green;
+.favorites-card-container button {
+    height: 50px;
+    background-color: white;
+    border: 0px;
+    border-top: 1px solid grey;
+    
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.favorites-card-container button:hover {
+    transition: .2s ease-in;
+    background-color: grey;
+}
+
+.favorites-card-container button:active {
+    transition: 0s;
+    background-color: rgb(0, 0, 0, .8);
 }

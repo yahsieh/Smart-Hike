@@ -40,16 +40,22 @@ const Favorites = () => {
     }
 
     return (
-        <div id='favorites-container'>
-            {trails.map((trail) => (
-                favorites.includes(trail.id) ?
-                <div className='favorites-card-container'>
-                    <TrailCard key={trail.id} name={trail.name} img={trail.img} />
-                    <button onClick={() => removeFavorite(trail.id)}>Unfavorite</button>
-                </div>
-                :
-                ''
-            ))}
+        <div id='favorites-main-container'>
+            <div id='favorites-banner'>
+                Your Favorites
+                <hr></hr>
+            </div>
+            <div id='favorites-container'>
+                {trails.map((trail) => (
+                    favorites.includes(trail.id) ?
+                    <div className='favorites-card-container'>
+                        <TrailCard key={trail.id} name={trail.name} img={trail.img} />
+                        <button onClick={() => removeFavorite(trail.id)}>Unfavorite</button>
+                    </div>
+                    :
+                    ''
+                ))}
+            </div>
         </div>
     )
 };
