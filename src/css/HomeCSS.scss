@@ -176,7 +176,7 @@
     // Dimensions
     height: 80px;
     padding-left: 10px;
-    padding-top: 15px;
+    padding-top: 20px;
     width: 85%;
 
     // STYLING
@@ -188,7 +188,7 @@
 #example-photos-content {
     width: 85%;
     overflow: auto;
-    padding-top: 15px;
+    padding-top: 0px;
 
     &::-webkit-scrollbar {
         display: none;
