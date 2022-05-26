@@ -2525,6 +2525,174 @@ export const TrailInfo = [{
             "ModifiedTime": "2016-02-25 01:14:00",
             "reviews": 0,
             "url": "https://prescriptiontrails.org/trail/14/hagerman-bobcat-stadium/"
+        },
+        {
+            "id": 47,
+            "name": "Carrizozo Golf Course",
+            "city": "Lincoln County",
+            "zip": 88301,
+            "crossstreets": "Off Highway 380 just east of Carrizozo",
+            "address": "Highway 380 East",
+            "transit": "None",
+            "lat": "33.641527",
+            "lng": "-105.858449",
+            "desc": "This%20beautiful%20trail%20winds%20through%20Carrizozo%27s%20municipal%20golf%20course%2C%20Valle%20Del%20Sol.%20It%20is%20visible%20and%20well-maintained.",
+            "lighting": "None",
+            "difficulty": 1,
+            "surface": "6-7 foot asphalt",
+            "parking": "Dirt lot near course",
+            "facilities": "Restrooms",
+            "hours": "Dawn to dusk",
+            "loopcount": 1,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1453668112carGolf.jpg",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1453668149DSCN2696.JPG",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1453668149DSCN2696.JPG.jpg",
+            "attractions": [
+                "Golf%20course",
+                "Tennis%20courts%20nearby",
+                "Dog%20friendly%20with%20leash"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Main Loop",
+                    "distance": "2.25",
+                    "steps": 4752
+                }
+            },
+            "published": "true",
+            "rating": 3,
+            "ratings": 1,
+            "favorites": 2,
+            "ModifiedTime": "2016-02-25 01:14:00",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/47/carrizozo-golf-course/"
+        },
+        {
+            "id": 54,
+            "name": "Cedar Creek Fitness Trail",
+            "city": "Lincoln County",
+            "zip": 88345,
+            "crossstreets": "Mechem and Cedar Creek",
+            "address": "182 Spring Canyon Rd",
+            "transit": "None",
+            "lat": "33.3762382",
+            "lng": "-105.7099471",
+            "desc": "This%20trail%2C%20which%20is%20popular%20with%20the%20locals%2C%20includes%20a%20tranquil%20environment%20rich%20with%20trees%20and%20nature.%20Dogs%20and%20bikes%20are%20not%20allowed%20on%20this%20trail.",
+            "lighting": "None",
+            "difficulty": 2,
+            "surface": "5-foot wide crusher, fine",
+            "parking": "Available behind Smoky Bear Ranger Station",
+            "facilities": "Smoky Bear Ranger Station and Ceder Creek Picnic Area",
+            "hours": "Dawn to dusk",
+            "loopcount": 2,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1454535109Untitled.jpg",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1454535184DSCN2682.jpg",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1454535184DSCN2682.jpg",
+            "attractions": [
+                "Park%20benches",
+                "Exercise%20stations%20with%20instructions"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Grade 2",
+                    "distance": "0.25",
+                    "steps": 528
+                },
+                "2": {
+                    "name": "Grade 3",
+                    "distance": "1.3",
+                    "steps": 2746
+                }
+            },
+            "published": "true",
+            "rating": 4,
+            "ratings": 2,
+            "favorites": 1,
+            "ModifiedTime": "2019-10-18 13:56:13",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/54/cedar-creek-fitness-trail/"
+        },
+        {
+            "id": 55,
+            "name": "Grindstone Lake Trail",
+            "city": "Lincoln County",
+            "zip": 88345,
+            "crossstreets": "Grindstone Canyon Rd. to Resort Dr. - follow signs",
+            "address": "500 Resort Dr.",
+            "transit": "None",
+            "lat": "33.323796",
+            "lng": "-105.684383",
+            "desc": "This%20multi-use%20trail%2C%20designed%20by%20the%20International%20Mountain%20Biking%20Association%2C%20was%20completed%20in%202014.%20The%20trail%20loops%20from%20Grindstone%20Lake%20up%20to%20Grindstone%20Mesa.%20This%20trail%20is%20NOT%20ADA%20accessible.",
+            "lighting": "None",
+            "difficulty": 4,
+            "surface": "2-foot wide packed natural dirt",
+            "parking": "Parking lot onsite",
+            "facilities": "Restrooms at lower-level parking lot",
+            "hours": "Dawn to dusk",
+            "loopcount": 1,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1454535874GrindstoneTrailMapAug2014-800x600.jpeg",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1454535878Grindstone3.jpg",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1454535878Grindstone3.jpg",
+            "attractions": [
+                "Biking",
+                "Hiking",
+                "Horseback%20Riding"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Main",
+                    "distance": "6",
+                    "steps": 12672
+                }
+            },
+            "published": "true",
+            "rating": 3,
+            "ratings": 1,
+            "favorites": 0,
+            "ModifiedTime": "2016-02-25 01:14:00",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/55/grindstone-lake-trail/"
+        },
+        {
+            "id": 56,
+            "name": "Ruidoso High School Track",
+            "city": "Lincoln County",
+            "zip": 88345,
+            "crossstreets": "Gavilan Canyon Rd. and Warrior Dr.",
+            "address": "125 Warrior Dr.",
+            "transit": "None",
+            "lat": "33.349591",
+            "lng": "-105.649504",
+            "desc": "This%20is%20a%20quarter-mile%20track%20around%20the%20Ruidoso%20High%20School%20practice%20field.%20The%20location%20is%20both%20scenic%20and%20convenient%21",
+            "lighting": "None",
+            "difficulty": 1,
+            "surface": "Rubberized track",
+            "parking": "At high school, handicap parking available",
+            "facilities": "High school",
+            "hours": "Non-school hours, seasonal",
+            "loopcount": 1,
+            "satImgURL": "https://prescriptiontrails.org/admin/new/images/1454536366rhstrack.png",
+            "largeImgURL": "https://prescriptiontrails.org/admin/new/images/1454536434IMG_0288.jpg",
+            "thumbURL": "https://prescriptiontrails.org/admin/new/images/square_1454536434IMG_0288.jpg",
+            "attractions": [
+                "Fenced%20track",
+                "Field%20in%20middle%20of%20track%2C%20perfect%20for%20kids",
+                "Bleachers"
+            ],
+            "loops": {
+                "1": {
+                    "name": "Main",
+                    "distance": "0.25",
+                    "steps": 528
+                }
+            },
+            "published": "true",
+            "rating": 3,
+            "ratings": 1,
+            "favorites": 1,
+            "ModifiedTime": "2016-02-25 01:14:00",
+            "reviews": 0,
+            "url": "https://prescriptiontrails.org/trail/56/ruidoso-high-school-track/"
         }
     ]
 }]

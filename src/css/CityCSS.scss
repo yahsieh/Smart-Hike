@@ -33,3 +33,18 @@
     margin: 20px 0px 20px 20px;
     background: white;
 }
+
+.city-trail {
+    height: 300px;
+}
+
+.city-heart {
+    height: 300px;
+    width: 300px;
+
+    >svg {
+        position: relative;
+        bottom: 288px;
+        left: 248px;
+    }
+}
