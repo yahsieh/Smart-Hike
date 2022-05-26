@@ -1,6 +1,9 @@
 #favorites-main-container {
     width: 100%;
     height: calc(100vh - var(--navbarpadding));
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 #favorites-banner {
@@ -11,16 +14,21 @@
     padding-top: 150px;
 }
 
+#favorites-banner hr {
+    width: 800px;
+}
+
 #favorites-container {
     // DIMENSIONS
     height: calc(100vh - var(--navbarpadding) - 250px);
-    width: 100%;
+    width: 1200px;
 
     // STYLING
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
     padding-left: 10px;
     padding-top: 10px;
     margin: 0px 0px 0px 0px;
