@@ -3,11 +3,17 @@ import "../css/RatingsCSS.scss";
 import {ReactComponent as FullStar} from "../assets/star_FILL0_wght400_GRAD0_opsz48.svg";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from '../firebase-config';
+import { useUserAuth } from "../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Ratings = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
     const [once, setOnce] = useState(false);
+    const history = useNavigate();
+    const { user } = useUserAuth();
 
     // GET DB RATING
     useEffect(() => {
@@ -28,6 +34,10 @@ const Ratings = (props) => {
 
     // RATING SUBMISSION
     const handleClick = (e) => {
+        if(!user) {
+            history("/login");
+        }
+
         if(once === false) {
             setRating(e);
             updateRating(e);

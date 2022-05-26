@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
+import '../css/LoginCSS.scss';
 
 const Signup = () => {
     const [email, setEmail] = useState();
@@ -21,36 +22,40 @@ const Signup = () => {
         }
     }
   return (
-    <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Firebase Auth Signup</h2>
+    <div id="signup-container">
+      <div id='login-banner'>
+        <span className='border-black'>Let's start your adventure!</span>
+      </div>
+      <div className="p-4 box loginbar">
         {err && <Alert variant="danger">{err}</Alert>}
-        <Form data-testid="signup-form" onSubmit={handleSignup}>
-          <Form.Group data-testid="signup-basic-email" className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Email address"
-              onChange={ (e) => setEmail(e.target.value) }/>
-          </Form.Group>
+        <div id="loginform">
+          <Form data-testid="signup-form" onSubmit={handleSignup}>
+            <Form.Group data-testid="signup-basic-email" className="mb-3" controlId="formBasicEmail">
+              <Form.Control
+                type="email"
+                placeholder="Email address"
+                onChange={ (e) => setEmail(e.target.value) }/>
+            </Form.Group>
 
-          <Form.Group data-testid="signup-basic-password" className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={ (e) => setPassword(e.target.value) }/>
-          </Form.Group>
+            <Form.Group data-testid="signup-basic-password" className="mb-3" controlId="formBasicPassword">
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={ (e) => setPassword(e.target.value) }/>
+            </Form.Group>
 
-          <div className="d-grid gap-2">
-            <Button data-testid="signup-button" variant="primary" type="Submit">
-              Sign up
-            </Button>
+            <div className="d-grid gap-2">
+              <Button data-testid="signup-button" variant="primary" type="Submit">
+                Sign up
+              </Button>
+            </div>
+          </Form>
+          <div className="p-4 box mt-3 text-center alreadylogin">
+            Already have an account? <Link data-testid = "link-to-login" to="/login">Log In</Link>
           </div>
-        </Form>
+        </div>
       </div>
-      <div className="p-4 box mt-3 text-center">
-        Already have an account? <Link data-testid = "link-to-login" to="/">Log In</Link>
-      </div>
-    </>
+    </div>
   );
 };
 

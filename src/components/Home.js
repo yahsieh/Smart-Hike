@@ -78,21 +78,29 @@ const Home = () => {
 
     // ADD FAVORITE TRAIL
     const addUserFavorites = async (trailID) => {
-        const userDocRef = doc(db, "user-favorites", user.uid);
-        setDoc(userDocRef, {foo: 'bar'}, {merge: true});
-        await updateDoc(userDocRef, {
-            favorites: arrayUnion(trailID)
-        });
-        console.log(favorites);
+        if (user) {
+            const userDocRef = doc(db, "user-favorites", user.uid);
+            setDoc(userDocRef, {foo: 'bar'}, {merge: true});
+            await updateDoc(userDocRef, {
+                favorites: arrayUnion(trailID)
+            });
+            console.log(favorites);
+        } else {
+            history("/login");
+        }
         // favorites.includes(trailID) === -1 ? setFavorites(prevArray => [...prevArray, trailID]) : console.log("Already Exists");
     }
 
     // REMOVE FAVORITE TRAIL
     const removeFavorite = async (trailID) => {
-        const userDocRef = doc(db, "user-favorites", user.uid);
-        await updateDoc(userDocRef, {
-            favorites: arrayRemove(trailID)
-        });
+        if (user) {
+            const userDocRef = doc(db, "user-favorites", user.uid);
+            await updateDoc(userDocRef, {
+                favorites: arrayRemove(trailID)
+            });
+        } else {
+            history("/login");
+        }
     }
 
     return (

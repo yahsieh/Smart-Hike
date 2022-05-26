@@ -1,0 +1,65 @@
+#login-container {
+    width: 100%;
+    height: calc(100vh - var(--navbarpadding));
+    padding: 0px;
+    background: url("../assets/pexels-johannes-plenio-1423600.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: right;
+}
+
+#signup-container {
+    width: 100%;
+    height: calc(100vh - var(--navbarpadding));
+    padding: 0px;
+    background: url("../assets/pexels-janik-butz-5366526.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: right;
+    color: rgb(230, 230, 230);
+}
+
+.loginbar {
+    width: 500px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.678);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+#loginform {
+    height: 65%;
+}
+
+#login-banner {
+    width: calc(100% - 500px);
+    height: 65%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.alreadylogin {
+    margin-top: 15px;
+    color: black;
+}
+
+.border-black {
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.border-white {
+    text-shadow: 0 0 3px #FFFFFF, 0 0 5px #FFFFFF;
+}
