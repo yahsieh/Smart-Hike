@@ -154,7 +154,7 @@ const Home = () => {
 
                 {/* EXAMPLE PHOTOS SECTION */}
                 <div id="example-photos-main-container">
-                    <div id="example-photos-banner">EXAMPLE PHOTOS</div>
+                    <div id="example-photos-banner"> User Submitted Photos </div>
                     <div id="example-photos-content">
                         <PhotoAlbum layout="rows" photos={photos} />
                     </div>
