@@ -17,7 +17,6 @@ const Settings = () => {
     const [ defaultData, updateDefaultData ] = React.useState(initialDefaultData);
     const { user } = useUserAuth();
     const defaultCollectionRef = collection(db, "default");
-    const [err, setErr] = useState();
 
     {/* Debug */}
     useEffect(() => {
@@ -55,7 +54,7 @@ const Settings = () => {
         });
     };
 
-    // submit default form
+    // submit trail suggestions
     const handleDefaultSubmit = (e) => {
         e.preventDefault();
         if(defaultData.name !== '' && defaultData.city !== '' && defaultData.zipcode !== ''
@@ -70,21 +69,11 @@ const Settings = () => {
 
         <div className="p-4 box" >
                 <form noValidate>
-
-                    {/*<Container
-                        style={{ justifyContent: "center", display: "flex", alignItems: "center"
-                    }}>*/}
-                        {/*<input
-                            accept="image/*"
-                            id="icon-button-file"
-                            type="file"
-                            onChange = {handleImageChange}
-                        />*/}
                 
+                    {/* pfp component */}
                     <PFP />
 
-                    <div><h2><b>Change Mode</b></h2></div>
-
+                    {/*Darkmode component */}
                     <Container
                         style={{
                         display: "flex",
@@ -94,7 +83,7 @@ const Settings = () => {
                         <DarkMode />
                     </Container>  
 
-                    <div><h2><b>Change Defaults</b></h2></div>
+                    <div><h2><b>Trail Suggestions</b></h2></div>
 
                     {/* Change Trail name */}
                     <label id="message"><br></br>name</label>

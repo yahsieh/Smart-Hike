@@ -25,7 +25,7 @@ const Navbar = () => {
         // Hides navlink content based on user authentication context
         <nav className='navbar'>
             <div id='navlogo'>
-                LOGO
+                LOGO 
             </div>
 
             <div id = 'pfp'>

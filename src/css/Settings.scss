@@ -4,76 +4,9 @@ $color-grey-light: #f5f5f5;
 $color-primary: #ffab00;
 $radius: 3px;
 
-// Function
-@function remy($value, $base: 16px) {
-    @return ($value / $base) * 1rem;
-}
-
 // Mixins
 @mixin transition($prop: all, $duration: .25s, $timing: cubic-bezier(.4,0,1,1)) {
     transition: $prop $duration $timing;
-}
-
-html {
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-*,
-*:after,
-*:before {
-    box-sizing: border-box;
-}
-
-body {
-    font: 100% 'Roboto', arial, sans-serif;
-    background: $color-grey-light;
-}
-#outPopUp {
-    position:relative;
-    width: 300px;
-    height: 200px;
-    z-index: 15;
-    top: 50%;
-    left: 50%;
-    margin: 0px 0 0 -150px;
-}
-
-
-form {
-    padding: remy(32px);
-    margin-top: 2rem;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: remy(380px);
-    background-color: #fff;
-    border-radius: $radius;
-    box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
-}
-
-h1 {
-    padding-top: remy(32px);
-    margin-top: 0;
-    margin-bottom: 3.236rem;
-    text-align: center;
-    font-size: 1.618rem;
-}
-
-.form-group {
-    padding: 0;
-    border: 0;
-
-& + & {
-      margin-top: 1rem;
-  }
-}
-
-label {
-    display: inline-block;
-    margin-bottom: .5rem;
-    font-size: .75rem;
-    text-transform: uppercase;
-    touch-action: manipulation;
 }
 
 input,
@@ -93,11 +26,6 @@ textarea {
     border-left: 0;
     border-radius: $radius;
     @include transition;
-
-&:focus {
-     outline: 0;
-     border-bottom-color: $color-primary;
- }
 }
 
 .textboxsize {
@@ -127,17 +55,6 @@ textarea {
     cursor: pointer;
     user-select: none;
     @include transition;
-
-&:focus,
-&:hover {
-     background-color: lighten($color-primary, 13%);
-     box-shadow: 0 18px 35px rgba(50,50,93,.1),0 8px 15px rgba(0,0,0,.07);
- }
-
-&:focus {
-     outline: 0;
- }
- 
 }
 
   

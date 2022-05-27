@@ -1,33 +1,33 @@
 import "../css/DarkMode.css";
 import { ChangeEventHandler } from "react";
+import React, {useState, useEffect} from "react";
 
-// 1
+//set dark
 const setDark = () => {
-
-  // 2
   localStorage.setItem("theme", "dark");
-
-  // 3
   document.documentElement.setAttribute("data-theme", "dark");
 };
 
+//set light
 const setLight = () => {
   localStorage.setItem("theme", "light");
   document.documentElement.setAttribute("data-theme", "light");
 };
 
-// 4
-const storedTheme = localStorage.getItem("theme");
+//maintain persistence
+let storedTheme = localStorage.getItem("theme");
 
-const prefersDark =
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+function prefersDark() {
+  return storedTheme == "dark";
+}
 
-const defaultDark =
-  storedTheme === "dark" || (storedTheme === null && prefersDark);
-
-if (defaultDark) {
-  setDark();
+function setTheme(){
+  if(storedTheme == "dark"){
+    setDark()
+  }
+  else{
+    setLight()
+  }
 }
 
 // 5
@@ -40,6 +40,7 @@ const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
 };
 
 const DarkMode = () => {
+
   return (
     <div className="toggle-theme-wrapper">
       <span>☀️</span>
@@ -47,10 +48,7 @@ const DarkMode = () => {
         <input
           type="checkbox"
           id="checkbox"
-
-          // 6
           onChange={toggleTheme}
-          defaultChecked={defaultDark}
         />
         <div className="slider round"></div>
       </label>
