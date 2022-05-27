@@ -29,8 +29,8 @@ const TrailCard = (props) => {
     const updateInfo = () => {
         // only update trail and weather info once
         if (info.name === '') {
-            setInfo(TrailInfo[0].trails.find((v) => v.name === props.name))
-            // console.debug(TrailInfo[0].trails.find((v) => v.name === props.name))
+            setInfo(TrailInfo.find((v) => v.name === props.name))
+            // console.debug(TrailInfo.find((v) => v.name === props.name))
         }
         if (weather.cod !== 200 && info.zip !== '') {
             // get longitude & latitude from geolocationapi
