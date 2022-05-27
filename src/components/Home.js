@@ -139,9 +139,7 @@ const Home = () => {
                         {ratings.sort(order).map((trail) => (
                             <div id="card-container" key={trail.id}>
                                 <TrailCard name={trail.name} img={trail.img}/>
-                                <div id="rating">
-                                    <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries}/>
-                                </div>
+                                <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries}/>
                                 <div id="heart">
                                 {favorites.includes(trail.id) ? 
                                     <Heart fill="red" onClick={() => removeFavorite(trail.id)}/> : 

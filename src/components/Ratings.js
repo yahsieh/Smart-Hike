@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/RatingsCSS.scss";
-import {ReactComponent as FullStar} from "../assets/star_FILL0_wght400_GRAD0_opsz48.svg";
+import { ReactComponent as FullStar } from "../assets/star_FILL0_wght400_GRAD0_opsz48.svg";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from '../firebase-config';
 import { useUserAuth } from "../context/UserAuthContext";
@@ -17,7 +17,7 @@ const Ratings = (props) => {
 
     // GET DB RATING
     useEffect(() => {
-        if(props.rating) {
+        if (props.rating) {
             setRating(Math.round(props.rating));
         }
     }, []);
@@ -25,20 +25,20 @@ const Ratings = (props) => {
     // UPDATE DB RATING ON SUBMISSION
     const updateRating = async (rating) => {
         const ratingsDoc = doc(db, "trailratings", props.docId);
-        var calcdEntries = props.entries+1;
-        var calcdRating = props.rating + ((rating - props.rating)/calcdEntries);
+        var calcdEntries = props.entries + 1;
+        var calcdRating = props.rating + ((rating - props.rating) / calcdEntries);
 
-        const newRating = {rating: calcdRating, entries: calcdEntries};
+        const newRating = { rating: calcdRating, entries: calcdEntries };
         await updateDoc(ratingsDoc, newRating);
     };
 
     // RATING SUBMISSION
     const handleClick = (e) => {
-        if(!user) {
+        if (!user) {
             history("/login");
         }
 
-        if(once === false) {
+        if (once === false) {
             setRating(e);
             updateRating(e);
             setOnce(true);
@@ -51,28 +51,28 @@ const Ratings = (props) => {
     const handleHover = (e) => {
         setHover(e);
     };
-    
+
     return (
-        <div>
+        <div id="rating">
             {[...Array(5)].map((star, iter) => {
-                const currRating = iter+1;
+                const currRating = iter + 1;
 
-                return(
-                <label>
-                    <input 
-                        type="radio" 
-                        name="rating"
-                        value={currRating}
-                        onClick={() => handleClick(currRating)}
-                    />
+                return (
+                    <label>
+                        <input
+                            type="radio"
+                            name="rating"
+                            value={currRating}
+                            onClick={() => handleClick(currRating)}
+                        />
 
-                    <FullStar 
-                        fill={currRating <= (hover || rating) ? 'gold' : 'grey'}
-                        className="star"
-                        onMouseEnter={() => handleHover(currRating)}
-                        onMouseLeave={() => handleHover(null)}
-                    />
-                </label>
+                        <FullStar
+                            fill={currRating <= (hover || rating) ? 'gold' : 'grey'}
+                            className="star"
+                            onMouseEnter={() => handleHover(currRating)}
+                            onMouseLeave={() => handleHover(null)}
+                        />
+                    </label>
                 );
             })}
             {/* {parseFloat(props.rating).toPrecision(3)/1} */}

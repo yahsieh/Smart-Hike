@@ -9,3 +9,10 @@ input[type="radio"] {
     cursor: pointer;
     transition: fill 400ms ease;
 }
+
+#rating {
+    position: relative;
+    top: -133px;
+    left: 33px;
+    height: 48px;
+}
