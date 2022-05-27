@@ -4,18 +4,15 @@ import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Hits } from "react-instantsearch-hooks-web";
 import { TrailCard } from "./TrailCard";
 import SearchBoxBasic from "./SearchBoxBasic";
+import {ReactComponent as Heart} from "../assets/favorite_FILL1_wght400_GRAD0_opsz48.svg";
 import '../css/PreferenceCSS.scss';
-
-function Handle({ hit }) {
-    return (
-        <TrailCard name={hit.name} img={hit.thumbURL} />
-    );
-}
 
 const PreferenceForm = () => {
     const history = useLocation();
     const [historyFlag, updateHistoryFlag] = useState([]);
     const [initVal, updateInitVal] = useState('')
+    const [favorites, setFavorites] = useState([]);
+
     useEffect(() => {
         if (history.state && historyFlag !== 'done') {
             updateInitVal(
@@ -23,7 +20,8 @@ const PreferenceForm = () => {
             )
             updateHistoryFlag('done')
         }
-    }, [historyFlag], [history])
+    }, [historyFlag], [history], [])
+
     const conditionalQuery = {
         search(query) {
             console.debug(query)
@@ -49,6 +47,27 @@ const PreferenceForm = () => {
             }
         }
     }
+
+    
+    const addUserFavorites = (e) => {
+        setFavorites([...favorites, e]);
+    }
+
+    const removeFavorites = (e) => {
+        setFavorites(favorites.filter(name => name != e));
+    }
+
+    function Handle({ hit }) {
+        return (
+            <div>
+                <TrailCard name={hit.name} img={hit.thumbURL} />
+                {favorites.includes(hit.name) ? 
+                    <Heart fill="red" onClick={() => removeFavorites(hit.name)}/> : 
+                    <Heart fill="grey"onClick={() => addUserFavorites(hit.name)}/>}
+            </div>
+        );
+    }
+
     return (
         <div>
             <InstantSearch
