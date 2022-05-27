@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import { useSearchBox } from 'react-instantsearch-hooks-web'
 import useDebounce from './useDebounce'
 
@@ -32,6 +32,7 @@ const SearchBoxBasic = (props) => {
     const handleChange = (e) => {
         updateText(e.target.value)
         setSearchTerm(e.target.value)
+        this.props.query = query
     }
 
     return (
@@ -45,4 +46,4 @@ const SearchBoxBasic = (props) => {
     )
 }
 
-export default SearchBoxBasic;
+export default memo(SearchBoxBasic);

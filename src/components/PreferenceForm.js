@@ -4,7 +4,7 @@ import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Hits } from "react-instantsearch-hooks-web";
 import { TrailCard } from "./TrailCard";
 import SearchBoxBasic from "./SearchBoxBasic";
-import {ReactComponent as Heart} from "../assets/favorite_FILL1_wght400_GRAD0_opsz48.svg";
+import { ReactComponent as Heart } from "../assets/favorite_FILL1_wght400_GRAD0_opsz48.svg";
 import '../css/PreferenceCSS.scss';
 
 const PreferenceForm = () => {
@@ -20,7 +20,7 @@ const PreferenceForm = () => {
             )
             updateHistoryFlag('done')
         }
-    }, [historyFlag], [history], [])
+    }, [historyFlag], [history])
 
     const conditionalQuery = {
         search(query) {
@@ -48,22 +48,26 @@ const PreferenceForm = () => {
         }
     }
 
-    
+
     const addUserFavorites = (e) => {
-        setFavorites([...favorites, e]);
+        console.debug(e)
+        favorites.push(e)
+        document.getElementById(e + "-heart-grey").style.fill = "red"
+        // setFavorites([...favorites, e]);
     }
 
     const removeFavorites = (e) => {
-        setFavorites(favorites.filter(name => name != e));
+        document.getElementById(e + "-heart-red").style.fill = "grey"
+        // setFavorites(favorites.filter(name => name != e));
     }
 
     function Handle({ hit }) {
         return (
             <div>
                 <TrailCard name={hit.name} img={hit.thumbURL} />
-                {favorites.includes(hit.name) ? 
-                    <Heart fill="red" onClick={() => removeFavorites(hit.name)}/> : 
-                    <Heart fill="grey"onClick={() => addUserFavorites(hit.name)}/>}
+                {favorites.includes(hit.name) ?
+                    <Heart id={hit.name + "-heart-red"} fill="red" onClick={() => removeFavorites(hit.name)} /> :
+                    <Heart id={hit.name + "-heart-grey"} fill="grey" onClick={() => addUserFavorites(hit.name)} />}
             </div>
         );
     }
