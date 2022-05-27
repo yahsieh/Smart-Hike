@@ -9,6 +9,7 @@ import useDebounce from './useDebounce'
 
 const SearchBoxBasic = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
+    const [text, updateText] = useState('')
     const debouncedSearchTerm = useDebounce(searchTerm, 1000)
     const { query, refine, isSearchStalled } = useSearchBox(props)
 
@@ -21,15 +22,25 @@ const SearchBoxBasic = (props) => {
             refine('')
         }
     }, [debouncedSearchTerm])
+    useEffect(() => {
+        if (props.initText !== "") {
+            updateText(props.initText)
+            setSearchTerm(props.initText)
+        }
+    }, [props])
+
+    const handleChange = (e) => {
+        updateText(e.target.value)
+        setSearchTerm(e.target.value)
+    }
 
     return (
         <form noValidate action="" role="search">
             <input
                 type="search"
-                onChange={e => setSearchTerm(e.target.value)}
+                value={text}
+                onChange={handleChange}
             />
-            {/* <button onClick={() => refine('')}>Reset query</button> */}
-            {/* <p>{isSearchStalled ? 'stalling' : 'search....'} </p> */}
         </form>
     )
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Hits } from "react-instantsearch-hooks-web";
 import { TrailCard } from "./TrailCard";
@@ -11,8 +12,18 @@ function Handle({ hit }) {
     );
 }
 
-
 const PreferenceForm = () => {
+    const history = useLocation();
+    const [historyFlag, updateHistoryFlag] = useState([]);
+    const [initVal, updateInitVal] = useState('')
+    useEffect(() => {
+        if (history.state && historyFlag !== 'done') {
+            updateInitVal(
+                Object.values(history.state.data).find(v => v.length > 0)
+            )
+            updateHistoryFlag('done')
+        }
+    }, [historyFlag], [history])
     const conditionalQuery = {
         search(query) {
             console.debug(query)
@@ -44,10 +55,10 @@ const PreferenceForm = () => {
                 indexName="smarthike"
                 searchClient={conditionalQuery}
             >
-                <SearchBoxBasic />
+                <SearchBoxBasic initText={initVal} />
                 <Hits hitComponent={Handle} />
             </InstantSearch>
         </div>
-    );
+    )
 }
 export default PreferenceForm;
