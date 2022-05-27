@@ -50,7 +50,7 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo[0].trails.filter((trail) => (trail.city === "Albuquerque")).slice(0, 10).map((trail) => (
+                        TrailInfo.filter((trail) => (trail.city === "Albuquerque")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
@@ -67,7 +67,7 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo[0].trails.filter((trail) => (trail.city === "Las Cruces")).slice(0, 10).map((trail) => (
+                        TrailInfo.filter((trail) => (trail.city === "Las Cruces")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
@@ -84,7 +84,7 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo[0].trails.filter((trail) => (trail.city === "Lincoln County")).slice(0, 10).map((trail) => (
+                        TrailInfo.filter((trail) => (trail.city === "Lincoln County")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
