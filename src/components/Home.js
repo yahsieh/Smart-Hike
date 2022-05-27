@@ -84,6 +84,7 @@ const Home = () => {
             await updateDoc(userDocRef, {
                 favorites: arrayUnion(trailID)
             });
+            setFavorites([...favorites, trailID]);
             console.log(favorites);
         } else {
             history("/login");
