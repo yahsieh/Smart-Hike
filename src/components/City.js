@@ -39,6 +39,22 @@ const City = () => {
             favorites: arrayRemove(trailID)
         });
     }
+    const changeFavorite = async (trailID) => {
+        const element = document.getElementById(trailID + "-city-heart")
+        const color = element.getAttribute('fill')
+        if (color === "red") {
+            console.log("remove favorite")
+            removeFavorite(trailID)
+            element.setAttribute("fill", "grey")
+            element.style.fill = "grey"
+        } else if (color === "grey") {
+            console.log("add favorite")
+            addUserFavorites(trailID)
+            element.setAttribute("fill", "red")
+            element.style.fill = "red"
+        }
+    }
+
     return (
         <div id="city-page">
             <div id="city-header">
@@ -54,9 +70,11 @@ const City = () => {
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
-                                    {favorites.includes(trail.id) ?
-                                        <Heart fill="red" onClick={() => removeFavorite(trail.id)} /> :
-                                        <Heart fill="grey" onClick={() => addUserFavorites(trail.id)} />}
+                                    <Heart
+                                        id={trail.id + "-city-heart"}
+                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.id)}
+                                    />
                                 </div>
                             </div>
                         ))
@@ -71,9 +89,11 @@ const City = () => {
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
-                                    {favorites.includes(trail.id) ?
-                                        <Heart fill="red" onClick={() => removeFavorite(trail.id)} /> :
-                                        <Heart fill="grey" onClick={() => addUserFavorites(trail.id)} />}
+                                    <Heart
+                                        id={trail.id + "-city-heart"}
+                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.id)}
+                                    />
                                 </div>
                             </div>
                         ))
@@ -88,9 +108,11 @@ const City = () => {
                             <div className="city-trail" key={trail.id} >
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
-                                    {favorites.includes(trail.id) ?
-                                        <Heart fill="red" onClick={() => removeFavorite(trail.id)} /> :
-                                        <Heart fill="grey" onClick={() => addUserFavorites(trail.id)} />}
+                                    <Heart
+                                        id={trail.id + "-city-heart"}
+                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.id)}
+                                    />
                                 </div>
                             </div>
                         ))

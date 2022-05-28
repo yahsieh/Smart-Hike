@@ -104,6 +104,22 @@ const Home = () => {
         }
     }
 
+    const changeFavorite = async (trailID) => {
+        const element = document.getElementById(trailID + "-heart")
+        const color = element.getAttribute('fill')
+        if (color === "red") {
+            console.log("remove favorite")
+            removeFavorite(trailID)
+            element.setAttribute("fill", "grey")
+            element.style.fill = "grey"
+        } else if (color === "grey") {
+            console.log("add favorite")
+            addUserFavorites(trailID)
+            element.setAttribute("fill", "red")
+            element.style.fill = "red"
+        }
+    }
+
     return (
         <div id="homepage">
             {/* BACKGROUND */}
@@ -139,12 +155,14 @@ const Home = () => {
                     <div id="favorite-trails">
                         {ratings.sort(order).map((trail) => (
                             <div id="card-container" key={trail.id}>
-                                <TrailCard name={trail.name} img={trail.img}/>
-                                <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries}/>
+                                <TrailCard name={trail.name} img={trail.img} />
+                                <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries} />
                                 <div id="heart">
-                                {favorites.includes(trail.id) ? 
-                                    <Heart fill="red" onClick={() => removeFavorite(trail.id)}/> : 
-                                    <Heart fill="grey"onClick={() => addUserFavorites(trail.id)}/>}
+                                    <Heart
+                                        id={trail.id + "-heart"}
+                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.id)}
+                                    />
                                 </div>
                             </div>
                         ))}
