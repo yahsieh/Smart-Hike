@@ -4,14 +4,13 @@
   --link-color: cornflowerblue;
 }
 
-/* 2 */
+/* color scheme for darkmode */
 [data-theme="dark"] {
   --font-color: #777;
   --background-color: #333;
   --link-color: lightblue;
 }
 
-/* 3 */
 body {
   background-color: var(--background-color);
   color: var(--font-color);

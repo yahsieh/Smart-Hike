@@ -14,23 +14,18 @@ const setLight = () => {
   document.documentElement.setAttribute("data-theme", "light");
 };
 
-//maintain persistence
-let storedTheme = localStorage.getItem("theme");
+//maintain theme persistence
+const storedTheme = localStorage.getItem("theme");
 
-function prefersDark() {
-  return storedTheme == "dark";
+const prefersDark =
+  matchMedia && matchMedia("(prefers-color-scheme: dark)").matches;
+
+const defaultDark = storedTheme === "dark" || (storedTheme === null && prefersDark);
+
+if (defaultDark) {
+  setDark();
 }
 
-function setTheme(){
-  if(storedTheme == "dark"){
-    setDark()
-  }
-  else{
-    setLight()
-  }
-}
-
-// 5
 const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
   if (e.target.checked) {
     setDark();
@@ -49,6 +44,7 @@ const DarkMode = () => {
           type="checkbox"
           id="checkbox"
           onChange={toggleTheme}
+
         />
         <div className="slider round"></div>
       </label>
