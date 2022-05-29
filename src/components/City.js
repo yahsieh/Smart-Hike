@@ -9,6 +9,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 
 const City = () => {
     const [favorites, setFavorites] = useState([]);
+    const [ratings, setRatings] = useState([]);
     const { user } = useUserAuth();
     useEffect(() => {
         const getFavorites = async () => {
@@ -71,7 +72,7 @@ const City = () => {
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
                                     <Heart
-                                        id={trail.id + "-city-heart"}
+                                        id={trail.id + "-heart"}
                                         fill={favorites.includes(trail.id) ? "red" : "grey"}
                                         onClick={() => changeFavorite(trail.id)}
                                     />
