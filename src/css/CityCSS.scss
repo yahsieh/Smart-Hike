@@ -36,12 +36,13 @@
 
 .city-trail {
     height: 300px;
-    background: white    ;
+    background: white;
 }
 
 .city-heart {
     height: 300px;
     width: 300px;
+    cursor: pointer;
 
     >svg {
         position: relative;

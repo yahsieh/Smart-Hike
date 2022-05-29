@@ -204,6 +204,12 @@ textarea {
 
 .ais-Hits-item {
     list-style-type: none;
+
+    >div>svg {
+        position: relative;
+        top: 12px;
+        right: 51px;
+    }
 }
 
 .ais-Hits-list {
