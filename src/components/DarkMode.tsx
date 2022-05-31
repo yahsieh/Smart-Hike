@@ -1,6 +1,6 @@
 import "../css/DarkMode.css";
 import { ChangeEventHandler } from "react";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 //set dark
 const setDark = () => {
@@ -35,6 +35,23 @@ const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
 };
 
 const DarkMode = () => {
+  const getTheme = () => {
+    const theme = localStorage.getItem('theme')
+    const element = document.getElementById('checkbox') as HTMLInputElement
+    if (element != null) {
+      if (theme === 'dark') {
+        element.checked = true
+        setDark()
+      } else {
+        element.checked = false
+        setLight()
+      }
+    }
+  }
+  // Update the value of the checkbox when the component is mounted
+  useEffect(() => {
+    getTheme()
+  }, [])
 
   return (
     <div className="toggle-theme-wrapper">
