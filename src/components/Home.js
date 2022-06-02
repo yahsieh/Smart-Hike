@@ -157,7 +157,7 @@ const Home = () => {
                         {ratings.sort(order).map((trail) => (
                             <div id="card-container" key={trail.id}>
                                 <TrailCard name={trail.name} img={trail.img} />
-                                <Ratings docId={trail.id} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img}/>
+                                <Ratings docId={trail.id.toString()} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img} city={trail.city}/>
                                 <div id="heart">
                                     <Heart
                                         id={trail.id + "-heart"}
