@@ -29,6 +29,7 @@ const City = () => {
         await updateDoc(userDocRef, {
             favorites: arrayUnion(trailID)
         });
+        setFavorites([...favorites, trailID]);
     }
 
     // REMOVE FAVORITE TRAIL
@@ -71,7 +72,7 @@ const City = () => {
                                 <TrailCard name={trail.name} img={trail.thumbURL} />
                                 <div className="city-heart">
                                     <Heart
-                                        id={trail.id + "-heart"}
+                                        id={trail.id + "-city-heart"}
                                         fill={favorites.includes(trail.id) ? "red" : "grey"}
                                         onClick={() => changeFavorite(trail.id)}
                                     />
