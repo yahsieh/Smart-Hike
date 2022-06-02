@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 import photos from "../photos";
 import { TrailCard } from './TrailCard';
+import { TrailInfo } from './TrailInfo';
 import '../css/HomeCSS.scss';
 import {collection, doc, getDoc, getDocs, setDoc, updateDoc, arrayUnion, arrayRemove} from "firebase/firestore";
 import { db } from "../firebase-config";
@@ -154,18 +155,18 @@ const Home = () => {
                     <div id="favorite-trails-banner">Highly Rated Trails</div>
                     <div id="favorite-trails">
                         {ratings.sort(order).map((trail) => (
-                            <div id="card-container" key={trail.trailinfo}>
+                            <div id="card-container" key={trail.id}>
                                 <TrailCard name={trail.name} img={trail.img} />
-                                <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries} />
+                                <Ratings docId={trail.id} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img}/>
                                 <div id="heart">
                                     <Heart
-                                        id={trail.trailinfo + "-heart"}
-                                        fill={favorites.includes(trail.trailinfo) ? "red" : "grey"}
-                                        onClick={() => changeFavorite(trail.trailinfo)}
+                                        id={trail.id + "-heart"}
+                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.id)}
                                     />
                                 </div>
                             </div>
-                        ))}
+                        )).slice(0,10)}
                     </div>
                 </div>
 

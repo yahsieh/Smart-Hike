@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { TrailInfo } from './TrailInfo';
 import { TrailCard } from "./TrailCard";
+import Ratings from "./Ratings";
 import '../css/CityCSS.scss';
-import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { ReactComponent as Heart } from "../assets/favorite_FILL1_wght400_GRAD0_opsz48.svg";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -11,6 +12,17 @@ const City = () => {
     const [favorites, setFavorites] = useState([]);
     const [ratings, setRatings] = useState([]);
     const { user } = useUserAuth();
+
+    const ratingsCollectionRef = collection(db, "trailratings");
+    useEffect(() => {
+        const getRatings = async () => {
+            const data = await getDocs(ratingsCollectionRef);
+            setRatings(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        };
+
+        getRatings();
+    }, []);
+
     useEffect(() => {
         const getFavorites = async () => {
             if (user.email) {
@@ -67,9 +79,10 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo.filter((trail) => (trail.city === "Albuquerque")).slice(0, 10).map((trail) => (
+                        ratings.filter((trail) => (trail.city === "Albuquerque")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
-                                <TrailCard name={trail.name} img={trail.thumbURL} />
+                                <TrailCard name={trail.name} img={trail.img} />
+                                <Ratings docId={trail.id.toString()} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img} city={trail.city}/>
                                 <div className="city-heart">
                                     <Heart
                                         id={trail.id + "-city-heart"}
@@ -86,9 +99,10 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo.filter((trail) => (trail.city === "Las Cruces")).slice(0, 10).map((trail) => (
+                        ratings.filter((trail) => (trail.city === "Las Cruces")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
-                                <TrailCard name={trail.name} img={trail.thumbURL} />
+                                <TrailCard name={trail.name} img={trail.img} />
+                                <Ratings docId={trail.id.toString()} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img} city={trail.city}/>
                                 <div className="city-heart">
                                     <Heart
                                         id={trail.id + "-city-heart"}
@@ -105,9 +119,10 @@ const City = () => {
                 </div>
                 <div className="trail-row">
                     {
-                        TrailInfo.filter((trail) => (trail.city === "Lincoln County")).slice(0, 10).map((trail) => (
+                        ratings.filter((trail) => (trail.city === "Lincoln County")).slice(0, 10).map((trail) => (
                             <div className="city-trail" key={trail.id} >
-                                <TrailCard name={trail.name} img={trail.thumbURL} />
+                                <TrailCard name={trail.name} img={trail.img} />
+                                <Ratings docId={trail.id.toString()} rating={trail.rating ? trail.rating : 0} entries={trail.entries ? trail.entries : 1} trailname={trail.name} img={trail.img} city={trail.city}/>
                                 <div className="city-heart">
                                     <Heart
                                         id={trail.id + "-city-heart"}

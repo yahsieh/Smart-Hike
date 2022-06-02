@@ -48,10 +48,10 @@ const Favorites = () => {
             </div>
             <div id='favorites-container'>
                 {TrailInfo.map((trail) => (
-                    favorites.includes(trail.id) ?
+                    favorites.includes(trail.id.toString()) ?
                     <div className='favorites-card-container'>
                         <TrailCard key={trail.id} name={trail.name} img={trail.thumbURL} />
-                        <button onClick={() => removeFavorite(trail.id)}>Unfavorite</button>
+                        <button onClick={() => removeFavorite(trail.id.toString())}>Unfavorite</button>
                     </div>
                     :
                     ''

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/RatingsCSS.scss";
 import { ReactComponent as FullStar } from "../assets/star_FILL0_wght400_GRAD0_opsz48.svg";
-import { updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc, setDoc } from "firebase/firestore";
 import { db } from '../firebase-config';
 import { useUserAuth } from "../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,7 @@ const Ratings = (props) => {
     // UPDATE DB RATING ON SUBMISSION
     const updateRating = async (rating) => {
         const ratingsDoc = doc(db, "trailratings", props.docId);
+        setDoc(ratingsDoc, { name: props.trailname, img: props.img, city: props.city}, { merge: true });
         var calcdEntries = props.entries + 1;
         var calcdRating = props.rating + ((rating - props.rating) / calcdEntries);
 
