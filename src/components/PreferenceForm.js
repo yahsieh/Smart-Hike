@@ -113,8 +113,8 @@ const PreferenceForm = () => {
                 <TrailCard name={hit.name} img={hit.thumbURL} />
                 <Heart
                     id={hit.id + "-heart"}
-                    fill={favorites.includes(hit.id) ? "red" : "grey"}
-                    onClick={() => changeFavorite(hit.id)}
+                    fill={favorites.includes(hit.id.toString()) ? "red" : "grey"}
+                    onClick={() => changeFavorite(hit.id.toString())}
                 />
             </div>
         );
