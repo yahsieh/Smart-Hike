@@ -15,7 +15,7 @@ const HikingGear = () => {
             setErr(err.message)
         }
     }
-
+    //create page for hiking gear
     return (
         <div>
             <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Prompt&display=swap" rel="stylesheet"></link>

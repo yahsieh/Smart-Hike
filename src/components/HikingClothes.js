@@ -15,6 +15,7 @@ const HikingClothes = () => {
             setErr(err.message)
         }
     }
+    //create page for hiking clothes
     return (
         
     <div>

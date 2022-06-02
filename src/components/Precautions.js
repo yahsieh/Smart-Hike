@@ -15,6 +15,7 @@ const Precautions = () => {
             setErr(err.message)
         }
     }
+    //create precautions page
     return (
         <div>
             <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Prompt&display=swap" rel="stylesheet"></link>
