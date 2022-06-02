@@ -3,6 +3,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 import { arrayRemove, collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { TrailCard } from "./TrailCard";
+import { TrailInfo } from './TrailInfo';
 import '../css/FavoritesCSS.scss';
 
 const Favorites = () => {
@@ -46,10 +47,10 @@ const Favorites = () => {
                 <hr></hr>
             </div>
             <div id='favorites-container'>
-                {trails.map((trail) => (
+                {TrailInfo.map((trail) => (
                     favorites.includes(trail.id) ?
                     <div className='favorites-card-container'>
-                        <TrailCard key={trail.id} name={trail.name} img={trail.img} />
+                        <TrailCard key={trail.id} name={trail.name} img={trail.thumbURL} />
                         <button onClick={() => removeFavorite(trail.id)}>Unfavorite</button>
                     </div>
                     :

@@ -154,14 +154,14 @@ const Home = () => {
                     <div id="favorite-trails-banner">Highly Rated Trails</div>
                     <div id="favorite-trails">
                         {ratings.sort(order).map((trail) => (
-                            <div id="card-container" key={trail.id}>
+                            <div id="card-container" key={trail.trailinfo}>
                                 <TrailCard name={trail.name} img={trail.img} />
                                 <Ratings docId={trail.id} rating={trail.rating} entries={trail.entries} />
                                 <div id="heart">
                                     <Heart
-                                        id={trail.id + "-heart"}
-                                        fill={favorites.includes(trail.id) ? "red" : "grey"}
-                                        onClick={() => changeFavorite(trail.id)}
+                                        id={trail.trailinfo + "-heart"}
+                                        fill={favorites.includes(trail.trailinfo) ? "red" : "grey"}
+                                        onClick={() => changeFavorite(trail.trailinfo)}
                                     />
                                 </div>
                             </div>
