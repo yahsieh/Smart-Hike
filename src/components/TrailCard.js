@@ -35,7 +35,7 @@ const TrailCard = (props) => {
         }
         if (weather.cod !== 200 && info.zip !== '') {
             // get longitude & latitude from geolocationapi
-            fetch('http://api.openweathermap.org/geo/1.0/zip?zip=' + info.zip +
+            fetch('https://api.openweathermap.org/geo/1.0/zip?zip=' + info.zip +
                 ',us&appid=' + process.env.REACT_APP_WEATHER_API_KEY
             )
                 .then((response) => response.json())
@@ -83,7 +83,7 @@ const TrailCard = (props) => {
         return (
             <>
                 <div className="weather">
-                    <img id="wicon" src={"http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"} alt="Weather icon" />
+                    <img id="wicon" src={"https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png"} alt="Weather icon" />
                     <h4>
                         {weather.main.temp_max + "° / " + weather.main.temp_min + "°F"}
                     </h4>
